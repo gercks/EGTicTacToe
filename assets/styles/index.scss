@@ -10,46 +10,56 @@ body {
   color: $font-color;
 }
 
-.box {
-  border: 1px solid $black;
+.board {
+    float: left;
+    font-size: 250%;
+    font-weight: bold;
+    margin-right: 40px;
+}
+
+.board td {
+    height: 120px;
+    text-align: center;
+    vertical-align: middle;
+    width: 120px;
 }
 
 #one {
-  border-right: 1px solid $black;
-  border-bottom: 1px solid $black;
+  border-right: 10px solid $black;
+  border-bottom: 10px solid $black;
 }
 #two {
-  border-right: 1px solid $black;
-  border-bottom: 1px solid $black;
-  border-left: 1px solid $black;
+  border-right: 10px solid $black;
+  border-bottom: 10px solid $black;
+  border-left: 10px solid $black;
 }
 #three {
-  border-bottom: 1px solid $black;
-  border-left: 1px solid $black;
+  border-bottom: 10px solid $black;
+  border-left: 10px solid $black;
 }
 #four {
-  border-top: 1px solid $black;
-  border-right: 1px solid $black;
-  border-bottom: 1px solid $black;
+  border-top: 10px solid $black;
+  border-right: 10px solid $black;
+  border-bottom: 10px solid $black;
 }
 #five {
-  border: 1px solid $black;
+  border: 10px solid $black;
 }
 #six {
-  border-top: 1px solid $black;
-  border-left: 1px solid $black;
-  border-bottom: 1px solid $black;
+  border-top: 10px solid $black;
+  border-left: 10px solid $black;
+  border-bottom: 10px solid $black;
 }
 #seven {
-  border-right: 1px solid $black;
-  border-top: 1px solid $black;
+  border-right: 10px solid $black;
+  border-top: 10px solid $black;
 }
 #eight {
-  border-right: 1px solid $black;
-  border-top: 1px solid $black;
-  border-left: 1px solid $black;
+  border-right: 10px solid $black;
+  border-top: 10px solid $black;
+  border-left: 10px solid $black;
 }
-#three {
-  border-top: 1px solid $black;
-  border-left: 1px solid $black;
+#nice {
+  border-top: 10px solid $black;
+  border-left: 10px solid $black;
 }

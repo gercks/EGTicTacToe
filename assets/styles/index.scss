@@ -1,8 +1,8 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
-$background-color: #4e4e4e;
-$font-color: #dfdfdf;
+$background-color: #42f4ce;
+$font-color: #f442a7;
 $black: #000;
 
 body {
@@ -11,7 +11,6 @@ body {
 }
 
 .board {
-    float: left;
     font-size: 250%;
     font-weight: bold;
     margin-right: 40px;
@@ -22,6 +21,10 @@ body {
     text-align: center;
     vertical-align: middle;
     width: 120px;
+}
+
+.board td:hover {
+    background-color: #Fff;
 }
 
 #one {

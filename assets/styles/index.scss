@@ -13,7 +13,7 @@ body {
 .board {
     font-size: 250%;
     font-weight: bold;
-    margin-right: 40px;
+    margin: auto;
 }
 
 .board td {
@@ -27,6 +27,12 @@ body {
     background-color: #Fff;
 }
 
+h1 {
+text-align: center;
+}
+p {
+text-align: center;
+}
 #one {
   border-right: 10px solid $black;
   border-bottom: 10px solid $black;

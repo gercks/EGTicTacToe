@@ -1,11 +1,11 @@
 'use strict'
 
-const setAPIOrigin = require('../../lib/set-api-origin')
-const config = require('./config')
-
-$(() => {
-  setAPIOrigin(location, config)
-})
+// const setAPIOrigin = require('../../lib/set-api-origin')
+// const config = require('./config')
+//
+// $(() => {
+//   setAPIOrigin(location, config)
+// })
 
 // const gameEvents = require('./games/events')
 
@@ -15,8 +15,8 @@ $(() => {
 
 $('td').click(function () {
   // console.log($(this).html())
-  if (($(this).html() !== 'x') && ($(this).html() !== 'o')) {
-    $(this).html('x')
+  if (($(this).html() === '')) {
+    $(this).html()
     // $(this).html(changeTurn())
     // marks.splice(this.id, 1, $(this).html()) // adds the last x or o to the marks array
     // console.log(marks)

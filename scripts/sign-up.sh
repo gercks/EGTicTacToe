@@ -1,9 +1,9 @@
 #!/bin/bash
-
-API="${API_ORIGIN:-http://httpbin.org}"
-URL_PATH="/post"
-# API="${API_ORIGIN:-https://gercks.github.io/EGTicTacToe}"
-# URL_PATH="/sign-up/"
+#
+# API="${API_ORIGIN:-http://httpbin.org}"
+# URL_PATH="/post"
+API="${API_ORIGIN:-http://tic-tac-toe.wdibos.com}"
+URL_PATH="/sign-up"
 
 curl "${API}${URL_PATH}" \
   --include \
@@ -11,7 +11,7 @@ curl "${API}${URL_PATH}" \
   --header "Content-Type: application/x-www-form-urlencoded" \
   --data '{
     "credentials": {
-      "username": "'"${USERNAME}"'",
+      "email": "'"${EMAIL}"'",
       "password": "'"${PASSWORD}"'",
       "password_confirmation": "'"${PASSWORD_CONFIRMATION}"'"
     }

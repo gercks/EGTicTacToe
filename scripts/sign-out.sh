@@ -1,8 +1,10 @@
 #!/bin/bash
 
+# ID=idgoeshere TOKEN=tokengoeshere sh scripts/sign-out.sh
+
 # API="${API_ORIGIN:-http://httpbin.org}"
 # URL_PATH="/delete?id=$ID"
-API="${API_ORIGIN:-https://gercks.github.io/EGTicTacToe}"
+API="${API_ORIGIN:-http://tic-tac-toe.wdibos.com}"
 URL_PATH="/sign-out/$ID"
 
 curl "${API}${URL_PATH}" \

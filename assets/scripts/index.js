@@ -41,7 +41,6 @@ $('td').on('click', function () {
   ($('#one').html() === 'x') &&
   ($('#two').html() === 'x')) {
     $('h2').html('x wins!')
-      .then($('td').html(''))
   } else if (($('#three').html() === 'x') &&
 ($('#four').html() === 'x') &&
 ($('#five').html() === 'x')) {

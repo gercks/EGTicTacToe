@@ -14,131 +14,48 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body class="container-fluid">
-
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
-  </button>
+</button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <div class="user-actions">
         <div class="modalz" id="sign-up-modal">
-      <!-- Button trigger sign up modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Sign Up!
-</button>
-
-<!-- Sign up -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Sign Up</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
         <form id="sign-up">
           <fieldset>
-          <input name="credentials[username]" type="text" placeholder="enter your username">
+          <input name="credentials[email]" type="text" placeholder="enter your email">
           <input name="credentials[password]" type="password" placeholder="enter your password">
           <input name="credentials[password_confirmation]" type="password" placeholder="confirm your password">
+          <input type="submit" name="submit" value="Sign up!">
+          <p id="message">test</p>
         </fieldset>
         </form>
-      </div>
-    </div>
   </div>
-</div>
-</div>
+  <br>
 <div class="modalz" id="sign-in-modal">
-<!-- Button trigger sign in modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-Sign In!
-</button>
-
-<!-- Sign in -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-<div class="modal-dialog" role="document">
-<div class="modal-content">
-<div class="modal-header">
-  <h5 class="modal-title" id="exampleModalLabel">Sign In</h5>
-  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
-<div class="modal-body">
   <form id="sign-in">
-    <input name="credentials[username]" type="text" placeholder="enter your username">
+    <input name="credentials[email]" type="text" placeholder="enter your email">
     <input name="credentials[password]" type="password" placeholder="enter your password">
+    <input type="submit" name="submit" value="Sign in!">
 </form>
 </div>
-<div class="modal-footer">
-  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-  <button type="submit" class="btn btn-primary">Save changes</button>
-</div>
-</div>
-</div>
-</div>
-</div>
+  <br>
 <div class="modalz" id="change-password-modal">
-<!-- Button trigger change password modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-Change Password
-</button>
-
-<!-- change password -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-<div class="modal-dialog" role="document">
-<div class="modal-content">
-<div class="modal-header">
-  <h5 class="modal-title" id="exampleModalLabel">Change Password</h5>
-  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
-<div class="modal-body">
   <form id="change-password">
+  <fieldset>
     <input name="passwords[old]" type="password" placeholder="enter old password">
     <input name="passwords[new]" type="password" placeholder="enter new password">
+    <input type="submit" name="submit" value="Change Password">
+  </fieldset>
 </form>
 </div>
-<div class="modal-footer">
-  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-  <button type="submit" class="btn btn-primary">Save changes</button>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="modalz" id="change-password-modal">
-<!-- Button trigger sign out modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-Sign Out
-</button>
-
-<!-- Sign out -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-<div class="modal-dialog" role="document">
-<div class="modal-content">
-<div class="modal-header">
-  <h5 class="modal-title" id="exampleModalLabel">Sign Out</h5>
-  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
-<div class="modal-body">
+  <br>
+<div class="modalz" id="sign-out-modal">
   <form id="sign-out">
     <fieldset>
         <input type="submit" name="submit" value="Sign out!">
       </fieldset>
 </form>
-</div>
-<div class="modal-footer">
-  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-  <button type="submit" class="btn btn-primary">Save changes</button>
-</div>
-</div>
 </div>
 </div>
 </div>

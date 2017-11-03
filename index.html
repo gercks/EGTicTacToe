@@ -21,12 +21,108 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link" href="#">Sign Up</a>
-      <a class="nav-item nav-link" href="#">Change Password</a>
-      <a class="nav-item nav-link" href="#">Sign Out</a>
-      <a class="nav-item nav-link" href="#">New Game</a>
+      <div class="user-actions">
+        <div class="modalz" id="sign-up-modal">
+      <!-- Button trigger sign up modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Sign Up!
+</button>
+
+<!-- Sign up -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Sign Up</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <input name="credentials[username]" type="text" placeholder="enter your username">
+          <input name="credentials[password]" type="password" placeholder="enter your password">
+          <input name="credentials[password_confirmation]" type="password" placeholder="confirm your password">
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
     </div>
   </div>
+</div>
+</div>
+<div class="modalz" id="sign-in-modal">
+<!-- Button trigger sign in modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+Sign In!
+</button>
+
+<!-- Sign in -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<div class="modal-header">
+  <h5 class="modal-title" id="exampleModalLabel">Sign In</h5>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form>
+    <input name="credentials[username]" type="text" placeholder="enter your username">
+    <input name="credentials[password]" type="password" placeholder="enter your password">
+</form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+  <button type="button" class="btn btn-primary">Save changes</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="modalz" id="change-password-modal">
+<!-- Button trigger change password modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+Change Password
+</button>
+
+<!-- Change password -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<div class="modal-header">
+  <h5 class="modal-title" id="exampleModalLabel">Sign In</h5>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form>
+    <input name="passwords[old]" type="password" placeholder="enter old password">
+    <input name="passwords[new]" type="password" placeholder="enter new password">
+</form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+  <button type="button" class="btn btn-primary">Save changes</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="modalz">
+<form id="sign-out">
+  <fieldset>
+    <input type="submit" name="submit" value="Sign out!">
+  </fieldset>
+</form>
+</div>
+    </div>
+  </div>
+</div>
 </nav>
       <h1>The best tic-tac-toe game in the world!</h1>
       <p>These are instructions that I'll write later because I don't even know how to play this game yet!</p>

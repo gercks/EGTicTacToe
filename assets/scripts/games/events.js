@@ -4,6 +4,7 @@ const getFormFields = require(`../../../lib/get-form-fields`)
 
 const api = require('./api')
 const ui = require('./ui')
+const index = require('../index')
 
 const onSignUp = function (event) {
   event.preventDefault()
@@ -52,28 +53,12 @@ const onNewGame = function (event) {
     .then(ui.newGameSuccess)
     .catch(ui.newGameFailure)
 }
-const playerInfo = {
-  playerX: true
-}
 
 const onPlay = function (event) {
   event.preventDefault()
   // add an if signed in thing here?
-  if (playerInfo.playerX === true) {
-    if ($(this).html() === '') {
-      $(this).html('x')
-    } else {
-      $('h2').html('you can\'t do that!')
-    }
-    playerInfo.playerX = false
-  } else {
-    if ($(this).html() === '') {
-      $(this).html('o')
-    } else {
-      $('h2').html('you can\'t do that!')
-    }
-    playerInfo.playerX = true
-  }
+  index.doTheGame()
+  index.checkForWin()
   api.play()
     .then(ui.playSuccess)
     .catch(ui.playFailure)

@@ -87,10 +87,86 @@ Sign In!
 Change Password
 </button>
 
-<!-- Change password -->
+<!-- change password -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 <div class="modal-dialog" role="document">
 <div class="modal-content">
 <div class="modal-header">
-  <h5 class="modal-title" id="exampleModalLabel">Sign In</h5>
-  <button type="button" class="close" data-dismiss="modal
+  <h5 class="modal-title" id="exampleModalLabel">Change Password</h5>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form id="change-password">
+    <input name="passwords[old]" type="password" placeholder="enter old password">
+    <input name="passwords[new]" type="password" placeholder="enter new password">
+</form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+  <button type="submit" class="btn btn-primary">Save changes</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="modalz" id="change-password-modal">
+<!-- Button trigger sign out modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+Sign Out
+</button>
+
+<!-- Sign out -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<div class="modal-header">
+  <h5 class="modal-title" id="exampleModalLabel">Sign Out</h5>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form id="sign-out">
+    <fieldset>
+        <input type="submit" name="submit" value="Sign out!">
+      </fieldset>
+</form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+  <button type="submit" class="btn btn-primary">Save changes</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+  <h1>The best tic-tac-toe game in the world!</h1>
+    <p>These are instructions that I'll write later because I don't even know how to play this game yet!</p>
+
+         <div id="tablefrominternet" class="container">
+           <table id="board" class="board">
+  <tr>
+      <td id="zero" class="col-md-4 box"></td>
+      <td id="one" class="col-md-4 box"></td>
+      <td id="two" class="col-md-4 box"></td>
+  </tr>
+  <tr>
+      <td id="three" class="col-md-4 box"></td>
+      <td id="four" class="col-md-4 box"></td>
+      <td id="five" class="col-md-4 box"></td>
+  </tr>
+  <tr>
+      <td id="six" class="col-md-4 box"></td>
+      <td id="seven" class="col-md-4 box"></td>
+      <td id="eight" class="col-md-4 box"></td>
+  </tr>
+</table>
+</div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+  </body>
+</html>

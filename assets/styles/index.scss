@@ -28,6 +28,7 @@ body {
 }
 .modalz {
   float: left;
+  margin: 0 10px;
 }
 h1 {
 text-align: center;
@@ -35,42 +36,42 @@ text-align: center;
 p {
 text-align: center;
 }
-#one {
+#zero {
   border-right: 10px solid $black;
   border-bottom: 10px solid $black;
 }
-#two {
+#one {
   border-right: 10px solid $black;
+  border-bottom: 10px solid $black;
+  border-left: 10px solid $black;
+}
+#two {
   border-bottom: 10px solid $black;
   border-left: 10px solid $black;
 }
 #three {
-  border-bottom: 10px solid $black;
-  border-left: 10px solid $black;
-}
-#four {
   border-top: 10px solid $black;
   border-right: 10px solid $black;
   border-bottom: 10px solid $black;
 }
-#five {
+#four {
   border: 10px solid $black;
 }
-#six {
+#five {
   border-top: 10px solid $black;
   border-left: 10px solid $black;
   border-bottom: 10px solid $black;
+}
+#six {
+  border-right: 10px solid $black;
+  border-top: 10px solid $black;
 }
 #seven {
   border-right: 10px solid $black;
   border-top: 10px solid $black;
-}
-#eight {
-  border-right: 10px solid $black;
-  border-top: 10px solid $black;
   border-left: 10px solid $black;
 }
-#nice {
+#eight {
   border-top: 10px solid $black;
   border-left: 10px solid $black;
 }

@@ -44,6 +44,40 @@ const onChangePassword = function (event) {
     .catch(ui.changePasswordFailure)
 }
 
+const onNewGame = function (event) {
+  event.preventDefault()
+  $('td').html('')
+  console.log('new game ran!')
+  api.createNewGame()
+    .then(ui.newGameSuccess)
+    .catch(ui.newGameFailure)
+}
+const playerInfo = {
+  playerX: true
+}
+
+const onPlay = function (event) {
+  event.preventDefault()
+  // add an if signed in thing here?
+  if (playerInfo.playerX === true) {
+    if ($(this).html() === '') {
+      $(this).html('x')
+    } else {
+      $('h2').html('you can\'t do that!')
+    }
+    playerInfo.playerX = false
+  } else {
+    if ($(this).html() === '') {
+      $(this).html('o')
+    } else {
+      $('h2').html('you can\'t do that!')
+    }
+    playerInfo.playerX = true
+  }
+  api.play()
+    .then(ui.playSuccess)
+    .catch(ui.playFailure)
+}
 //
 // const addX = function (event) {
 //   event.preventDefault()
@@ -63,6 +97,8 @@ const addHandlers = () => {
   $('#sign-in').on('submit', onSignIn)
   $('#sign-out').on('submit', onSignOut)
   $('#change-password').on('submit', onChangePassword)
+  $('#new-game').on('submit', onNewGame)
+  $('td').on('click', onPlay)
 }
 
 module.exports = {

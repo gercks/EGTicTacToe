@@ -13,27 +13,7 @@ $(() => {
 // })
 //
 // THIS ALLOWS YOU TO SELECT TILES AND INPUT ALTERNATING XS AND OS
-const playerInfo = {
-  playerX: true
-}
 
-$('td').on('click', function () {
-  if (playerInfo.playerX === true) {
-    if ($(this).html() === '') {
-      $(this).html('x')
-    } else {
-      $('h2').html('you can\'t do that!')
-    }
-    playerInfo.playerX = false
-  } else {
-    if ($(this).html() === '') {
-      $(this).html('o')
-    } else {
-      $('h2').html('you can\'t do that!')
-    }
-    playerInfo.playerX = true
-  }
-})
 // THIS IS THE END OF THAT
 // THIS WILL HOPEFULLY HELP FIND WINNING COMBOS FOR x
 $('td').on('click', function () {
@@ -106,7 +86,7 @@ $('td').on('click', function () {
     $('h2').html('o wins!')
   } else if (($('#two').html() === 'o') &&
 ($('#four').html() === 'o') &&
-($('#sio').html() === 'o')) {
+($('#six').html() === 'o')) {
     $('h2').html('o wins!')
   } else {
     // console.log('keep trying e')

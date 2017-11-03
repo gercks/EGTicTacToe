@@ -44,12 +44,6 @@ const onChangePassword = function (event) {
     .catch(ui.changePasswordFailure)
 }
 
-const addHandlers = () => {
-  $('#sign-up').on('submit', onSignUp)
-  $('#sign-in').on('submit', onSignIn)
-  $('#sign-out').on('submit', onSignOut)
-  $('#change-password').on('submit', onChangePassword)
-}
 //
 // const addX = function (event) {
 //   event.preventDefault()
@@ -63,6 +57,13 @@ const addHandlers = () => {
 //   console.log('hey')
 // }
 // // }
+//
+const addHandlers = () => {
+  $('#sign-up').on('submit', onSignUp)
+  $('#sign-in').on('submit', onSignIn)
+  $('#sign-out').on('submit', onSignOut)
+  $('#change-password').on('submit', onChangePassword)
+}
 
 module.exports = {
   addHandlers

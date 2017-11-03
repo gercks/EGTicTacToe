@@ -12,13 +12,25 @@ $(() => {
 //   $('td').on('click', gameEvents.addX)
 // })
 //
+const playerInfo = {
+  playerX: true
+}
 
-$('td').click(function () {
-  // console.log($(this).html())
-  if (($('td').html() === '')) {
-    $(this).html('x')
+$('td').on('click', function () {
+  if (playerInfo.playerX === true) {
+    if ($(this).html() === '') {
+      $(this).html('x')
+    } else {
+      console.log('no')
+    }
+    playerInfo.playerX = false
   } else {
-    console.log('no')
+    if ($(this).html() === '') {
+      $(this).html('o')
+    } else {
+      console.log('no')
+    }
+    playerInfo.playerX = true
   }
 })
 

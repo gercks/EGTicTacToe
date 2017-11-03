@@ -35,7 +35,7 @@ $('td').on('click', function () {
   }
 })
 // THIS IS THE END OF THAT
-// THIS WILL HOPEFULLY HELP FIND WINNING COMBOS
+// THIS WILL HOPEFULLY HELP FIND WINNING COMBOS FOR x
 $('td').on('click', function () {
   if (($('#zero').html() === 'x') &&
   ($('#one').html() === 'x') &&
@@ -74,12 +74,44 @@ $('td').on('click', function () {
   }
 })
 
-// var possibleWins = [
-// [2, 4, 6]
-//       ];
-//       var CORNER_SQUARES = [0, 2, 6, 8];
-//       var SIDE_SQUARES = [1, 3, 5, 7];
-//       var CENTER_SQUARE = 4;
+// this is winning combos for o
+$('td').on('click', function () {
+  if (($('#zero').html() === 'o') &&
+  ($('#one').html() === 'o') &&
+  ($('#two').html() === 'o')) {
+    console.log('o wins!')
+  } else if (($('#three').html() === 'o') &&
+($('#four').html() === 'o') &&
+($('#five').html() === 'o')) {
+    console.log('o wins!')
+  } else if (($('#sio').html() === 'o') &&
+($('#seven').html() === 'o') &&
+($('#eight').html() === 'o')) {
+    console.log('o wins!')
+  } else if (($('#zero').html() === 'o') &&
+($('#three').html() === 'o') &&
+($('#sio').html() === 'o')) {
+    console.log('o wins!')
+  } else if (($('#one').html() === 'o') &&
+($('#four').html() === 'o') &&
+($('#seven').html() === 'o')) {
+    console.log('o wins!')
+  } else if (($('#two').html() === 'o') &&
+($('#five').html() === 'o') &&
+($('#eight').html() === 'o')) {
+    console.log('o wins!')
+  } else if (($('#zero').html() === 'o') &&
+($('#four').html() === 'o') &&
+($('#eight').html() === 'o')) {
+    console.log('o wins!')
+  } else if (($('#two').html() === 'o') &&
+($('#four').html() === 'o') &&
+($('#sio').html() === 'o')) {
+    console.log('o wins!')
+  } else {
+    console.log('keep trying e')
+  }
+})
 
 const authEvents = require('./games/events.js')
 

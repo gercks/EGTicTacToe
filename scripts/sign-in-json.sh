@@ -1,9 +1,9 @@
 #!/bin/bash
-
-API="${API_ORIGIN:-http://httpbin.org}"
-URL_PATH="/post"
-# API="${API_ORIGIN:-https://gercks.github.io/EGTicTacToe}"
-# URL_PATH="/sign-in/"
+# EMAIL=elizagee@gamil.com PASSWORD=elizagee sh scripts/sign-in-json.sh
+# API="${API_ORIGIN:-http://httpbin.org}"
+# URL_PATH="/post"
+API="${API_ORIGIN:-http://tic-tac-toe.wdibos.com}"
+URL_PATH="/sign-in/"
 
 curl "${API}${URL_PATH}" \
   --include \
@@ -11,8 +11,8 @@ curl "${API}${URL_PATH}" \
   --header "Content-Type: application/json" \
   --data '{
     "credentials": {
-      "username": "'"${USERNAME}"'",
-      "password": "'"${PASSWORD}"'",
+      "email": "'"${EMAIL}"'",
+      "password": "'"${PASSWORD}"'"
     }
   }'
 

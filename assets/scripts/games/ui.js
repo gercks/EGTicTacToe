@@ -14,6 +14,7 @@ const signUpFailure = function (error) {
 
 const signInSuccess = function (response) {
   $('#message').text('Signed in successfully')
+  $('.hideme').show()
   console.log('signIn success ran. data is :', response)
   store.user = response.user
 }
@@ -44,6 +45,24 @@ const changePasswordFailure = function (error) {
   console.log('changePassword failure ran. error is :', error)
 }
 
+const newGameSuccess = function () {
+  $('#message').text('Created Game successfully')
+  console.log('asdlkf')
+}
+
+const newGameFailure = function (error) {
+  $('#message').text('Error on change password')
+  console.log('changePassword failure ran. error is :', error)
+}
+
+const playSuccess = function () {
+  console.log('awesome move')
+}
+
+const playFailure = function (error) {
+  $('#message').text('you messed up...')
+  console.log('changePassword failure ran. error is :', error)
+}
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -52,5 +71,9 @@ module.exports = {
   signOutSuccess,
   signOutFailure,
   changePasswordSuccess,
-  changePasswordFailure
+  changePasswordFailure,
+  newGameSuccess,
+  newGameFailure,
+  playSuccess,
+  playFailure
 }

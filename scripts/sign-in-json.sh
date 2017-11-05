@@ -1,5 +1,6 @@
 #!/bin/bash
-# EMAIL=elizagee@gamil.com PASSWORD=elizagee sh scripts/sign-in-json.sh
+# EMAIL=elizagercke@gmail.com PASSWORD=geepers sh scripts/sign-in-json.sh
+
 # API="${API_ORIGIN:-http://httpbin.org}"
 # URL_PATH="/post"
 API="${API_ORIGIN:-http://tic-tac-toe.wdibos.com}"

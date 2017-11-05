@@ -4,6 +4,7 @@ const getFormFields = require(`../../../lib/get-form-fields`)
 
 const api = require('./api')
 const ui = require('./ui')
+// const index = require('./../index.js')
 
 const onSignUp = function (event) {
   event.preventDefault()
@@ -43,26 +44,142 @@ const onChangePassword = function (event) {
     .then(ui.changePasswordSuccess)
     .catch(ui.changePasswordFailure)
 }
+const whoseTurn = {
+  playerX: true
+}
 
+const onNewGame = function (event) {
+  event.preventDefault()
+  $('td').html('')
+  whoseTurn.playerX = true
+  console.log('new game ran!')
+  api.createNewGame()
+    .then(ui.newGameSuccess)
+    .catch(ui.newGameFailure)
+}
+
+const cells = []
+
+const checkForWin = function () {
+  if (($('#zero').html() === 'x') &&
+  ($('#one').html() === 'x') &&
+  ($('#two').html() === 'x')) {
+    $('h2').html('x wins!')
+  } else if (($('#three').html() === 'x') &&
+($('#four').html() === 'x') &&
+($('#five').html() === 'x')) {
+    $('h2').html('x wins!')
+  } else if (($('#six').html() === 'x') &&
+($('#seven').html() === 'x') &&
+($('#eight').html() === 'x')) {
+    $('h2').html('x wins!')
+  } else if (($('#zero').html() === 'x') &&
+($('#three').html() === 'x') &&
+($('#six').html() === 'x')) {
+    $('h2').html('x wins!')
+  } else if (($('#one').html() === 'x') &&
+($('#four').html() === 'x') &&
+($('#seven').html() === 'x')) {
+    $('h2').html('x wins!')
+  } else if (($('#two').html() === 'x') &&
+($('#five').html() === 'x') &&
+($('#eight').html() === 'x')) {
+    $('h2').html('x wins!')
+  } else if (($('#zero').html() === 'x') &&
+($('#four').html() === 'x') &&
+($('#eight').html() === 'x')) {
+    $('h2').html('x wins!')
+  } else if (($('#two').html() === 'x') &&
+($('#four').html() === 'x') &&
+($('#six').html() === 'x')) {
+    $('h2').html('x wins!')
+  } else if (($('#zero').html() === 'o') &&
+  ($('#one').html() === 'o') &&
+  ($('#two').html() === 'o')) {
+    $('h2').html('o wins!')
+  } else if (($('#three').html() === 'o') &&
+($('#four').html() === 'o') &&
+($('#five').html() === 'o')) {
+    $('h2').html('o wins!')
+  } else if (($('#sio').html() === 'o') &&
+($('#seven').html() === 'o') &&
+($('#eight').html() === 'o')) {
+    $('h2').html('o wins!')
+  } else if (($('#zero').html() === 'o') &&
+($('#three').html() === 'o') &&
+($('#sio').html() === 'o')) {
+    $('h2').html('o wins!')
+  } else if (($('#one').html() === 'o') &&
+($('#four').html() === 'o') &&
+($('#seven').html() === 'o')) {
+    $('h2').html('o wins!')
+  } else if (($('#two').html() === 'o') &&
+($('#five').html() === 'o') &&
+($('#eight').html() === 'o')) {
+    $('h2').html('o wins!')
+  } else if (($('#zero').html() === 'o') &&
+($('#four').html() === 'o') &&
+($('#eight').html() === 'o')) {
+    $('h2').html('o wins!')
+  } else if (($('#two').html() === 'o') &&
+($('#four').html() === 'o') &&
+($('#six').html() === 'o')) {
+    $('h2').html('o wins!')
+  } else if (($('#zero').html() !== '') &&
+  ($('#one').html() !== '') &&
+  ($('#two').html() !== '') &&
+  ($('#three').html() !== '') &&
+  ($('#four').html() !== '') &&
+  ($('#five').html() !== '') &&
+  ($('#six').html() !== '') &&
+  ($('#seven').html() !== '') &&
+  ($('#eight').html() !== '')) {
+    $('h2').html('it is a draw!')
+  } else {
+  }
+}
+
+const doTheGame = function () {
+  if (whoseTurn.playerX === true) {
+    if ($(this).html() === '') {
+    // should it be this.store.over?
+      $(this).html('x')
+    // store.cells.push
+    } else {
+      $('h2').html('you can\'t do that!')
+    }
+    whoseTurn.playerX = false
+  } else if (whoseTurn.playerX === false) {
+    if ($(this).html() === '') {
+      $(this).html('o')
+    // store.cells.push
+    } else {
+      $('h2').html('you can\'t do that!')
+    }
+    whoseTurn.playerX = true
+  } else {
+    $('h2').html('a bad is happening!')
+  }
+  checkForWin()
+  cells.push($(this).html())
+}
 //
-// const addX = function (event) {
-//   event.preventDefault()
-//   // const data = getFormFields(event.target)
-//   // const game = data.game
-//   // // if (td !== 0) {
-//   // gamesApi.show(game.playerX)
-//   //   .then(gamesUi.onSuccess)
-//   //   .catch(gamesUi.onError)
-//   // // } else {
-//   console.log('hey')
+// const onPlay = function () {
+//   // event.preventDefault()
+//   // add an if signed in thing here?
+//   doTheGame()
+//   // api.play()
+//   //   .then(ui.playSuccess)
+//   //   .catch(ui.playFailure)
 // }
-// // }
-//
+
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
-  $('#sign-out').on('submit', onSignOut)
+  $('#sign-out').on('click', onSignOut)
   $('#change-password').on('submit', onChangePassword)
+  $('#new-game').on('click', onNewGame)
+  $('td').on('click', doTheGame)
 }
 
 module.exports = {

@@ -20,36 +20,69 @@
 </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-        <div class="modalz" id="sign-up-modal">
-        <form id="sign-up">
-          <fieldset>
-          <input name="credentials[email]" type="text" placeholder="enter your email">
-          <input name="credentials[password]" type="password" placeholder="enter your password">
-          <input name="credentials[password_confirmation]" type="password" placeholder="confirm your password">
-          <input type="submit" name="submit" value="Sign up!">
-          <p id="message">test</p>
-        </fieldset>
-        </form>
-  </div>
-  <br>
-<div class="modalz" id="sign-in-modal">
-  <form id="sign-in">
-    <input name="credentials[email]" type="text" placeholder="enter your email">
-    <input name="credentials[password]" type="password" placeholder="enter your password">
-    <input type="submit" name="submit" value="Sign in!">
-</form>
+<!-- beginning -->
+      <ul class="nav navbar-nav navbar-right">
+        <!-- beginning of sign up -->
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Sign Up!</b> <span class="caret"></span></a>
+			<ul class="dropdown-menu">
+					 <div class="row">
+							<div class="col-md-12">
+                <div class="modalz" id="sign-up-modal">
+                <form id="sign-up">
+                  <fieldset>
+                  <input name="credentials[email]" type="text" placeholder="enter your email">
+                  <input name="credentials[password]" type="password" placeholder="enter your password">
+                  <input name="credentials[password_confirmation]" type="password" placeholder="confirm password">
+                  <input type="submit" name="submit" value="Sign up!">
+                </fieldset>
+                </form>
+							</div>
+					 </div>
+         </div>
+       </ul>
+     </li>
+        <!-- beginning of sign in -->
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Sign in!</b></a>
+      <ul class="dropdown-menu">
+           <div class="row">
+              <div class="col-md-12">
+                <div class="modalz" id="sign-in-modal">
+                  <form id="sign-in">
+                  <fieldset>
+                    <input name="credentials[email]" type="text" placeholder="enter your email">
+                    <input name="credentials[password]" type="password" placeholder="enter your password">
+                    <input type="submit" name="submit" value="Sign in!">
+                  </fieldset>
+                </form>
+                </div>
+              </div>
+              </div>
+            </ul>
+    </li>
+        <!-- beginning of change password -->
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Change Password</b> <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+           <div class="row">
+              <div class="col-md-12">
+                <div class="modalz" id="change-password-modal">
+                  <form id="change-password">
+                  <fieldset>
+                    <input name="passwords[old]" type="password" placeholder="enter old password">
+                    <input name="passwords[new]" type="password" placeholder="enter new password">
+                    <input type="submit" name="submit" value="Change Password">
+                  </fieldset>
+                </form>
+                </div>
+              </div>
+           </div>
+      </ul>
+    </li>
+  </ul>
 </div>
-  <br>
-<div class="modalz" id="change-password-modal">
-  <form id="change-password">
-  <fieldset>
-    <input name="passwords[old]" type="password" placeholder="enter old password">
-    <input name="passwords[new]" type="password" placeholder="enter new password">
-    <input type="submit" name="submit" value="Change Password">
-  </fieldset>
-</form>
-</div>
-  <br>
+
 <div class="modalz" id="sign-out-modal">
   <form id="sign-out">
     <fieldset>
@@ -58,16 +91,20 @@
 </form>
 </div>
 </div>
-</div>
 </nav>
+<div>
 <form id="new-game">
   <fieldset>
       <input type="submit" name="submit" value="New Game">
     </fieldset>
 </form>
+</div>
   <h1>The best tic-tac-toe game in the world!</h1>
+<br>
     <p>These are instructions that I'll write later because I don't even know how to play this game yet!</p>
-<h2 class="announce-winner">words</h2>
+<br>
+<h2 class="announce-winner" id="message">words</h2>
+<br>
          <div id="tablefrominternet" class="container">
            <table id="board" class="board">
   <tr>

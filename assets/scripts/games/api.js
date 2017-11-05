@@ -43,25 +43,25 @@ const changePassword = function (data) {
   })
 }
 
-// const createNewGame = function () {
-//   return $.ajax({
-//     url: config.apiOrigin + '/games',
-//     method: 'POST',
-//     headers: {
-//       Authorization: 'Token token=' + store.user.token
-//     }
-//   })
-// }
-//
-// const play = function () {
-//   return $.ajax({
-//     url: config.apiOrigin + '/games',
-//     method: 'PATCH',
-//     headers: {
-//       Authorization: 'Token token=' + store.user.token
-//     }
-//   })
-// }
+const createNewGame = function () {
+  return $.ajax({
+    url: config.apiOrigin + '/games',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const play = function () {
+  return $.ajax({
+    url: config.apiOrigin + '/games',
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
 
 //
 // const show = function (x) {
@@ -79,5 +79,7 @@ module.exports = {
   signUp,
   signIn,
   signOut,
-  changePassword
+  changePassword,
+  play,
+  createNewGame
 }

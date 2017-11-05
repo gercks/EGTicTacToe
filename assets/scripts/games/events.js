@@ -44,30 +44,30 @@ const onChangePassword = function (event) {
     .then(ui.changePasswordSuccess)
     .catch(ui.changePasswordFailure)
 }
+const whoseTurn = {
+  playerX: true
+}
 
 const onNewGame = function (event) {
   event.preventDefault()
   $('td').html('')
+  whoseTurn.playerX = true
   console.log('new game ran!')
   api.createNewGame()
     .then(ui.newGameSuccess)
     .catch(ui.newGameFailure)
 }
 
-const playerInfo = {
-  playerX: true
-}
-
 const doTheGame = function () {
-  if (playerInfo.playerX === true) {
-    if ($(this).html() === '') {
-      // should it be this.store.over?
+  if (whoseTurn.playerX === true) {
+    if (($(this).html()) === '') {
+    // should it be this.store.over?
       $(this).html('x')
     // store.cells.push
     } else {
       $('h2').html('you can\'t do that!')
     }
-    playerInfo.playerX = false
+    whoseTurn.playerX = false
   } else {
     if ($(this).html() === '') {
       $(this).html('o')
@@ -75,7 +75,7 @@ const doTheGame = function () {
     } else {
       $('h2').html('you can\'t do that!')
     }
-    playerInfo.playerX = true
+    whoseTurn.playerX = true
   }
 }
 
@@ -150,7 +150,7 @@ const doTheGame = function () {
 // }
 
 const onPlay = function (event) {
-  // event.preventDefault()
+  event.preventDefault()
   // add an if signed in thing here?
   doTheGame()
   // checkForWin()
@@ -162,9 +162,9 @@ const onPlay = function (event) {
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
-  $('#sign-out').on('submit', onSignOut)
+  $('#sign-out').on('click', onSignOut)
   $('#change-password').on('submit', onChangePassword)
-  $('#new-game').on('submit', onNewGame)
+  $('#new-game').on('click', onNewGame)
   $('td').on('click', onPlay)
 }
 

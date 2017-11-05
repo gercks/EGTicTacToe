@@ -29,7 +29,18 @@ body {
 
 .modalz {
   float: left;
-  margin: 0 10px;
+  margin: 0 40px;
+}
+.dropdown {
+  float: left;
+  margin: 0 40px;
+}
+#newgame {
+  float: right;
+  background-color: red;
+  padding: 10px;
+  border: 10px solid $black;
+
 }
 h1 {
 text-align: center;

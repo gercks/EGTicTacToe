@@ -12,6 +12,11 @@ $(() => {
   authEvents.addHandlers()
 })
 
+$('.hideme').hide()
+
+// const gameboard = {
+//
+// }
 module.exports = {
   // playerInfo,
   // doTheGame,

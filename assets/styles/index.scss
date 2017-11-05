@@ -42,15 +42,15 @@ body {
   border: 10px solid $black;
 
 }
-h1 {
+h1, h2, h3, p {
 text-align: center;
 }
 h2 {
-text-align: center;
+background-color: yellow;
 }
-p {
-text-align: center;
-}
+// p {
+// text-align: center;
+// }
 #zero {
   border-right: 10px solid $black;
   border-bottom: 10px solid $black;

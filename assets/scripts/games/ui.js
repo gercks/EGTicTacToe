@@ -14,6 +14,7 @@ const signUpFailure = function (error) {
 
 const signInSuccess = function (response) {
   $('#message').text('Signed in successfully')
+  $('.hideme').show()
   console.log('signIn success ran. data is :', response)
   store.user = response.user
 }
@@ -55,8 +56,7 @@ const newGameFailure = function (error) {
 }
 
 const playSuccess = function () {
-  $('#message').text('awesome move!')
-  console.log('asdlkf')
+  console.log('awesome move')
 }
 
 const playFailure = function (error) {

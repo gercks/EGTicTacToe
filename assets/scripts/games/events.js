@@ -4,7 +4,6 @@ const getFormFields = require(`../../../lib/get-form-fields`)
 
 const api = require('./api')
 const ui = require('./ui')
-// const index = require('./../index.js')
 
 const onSignUp = function (event) {
   event.preventDefault()
@@ -44,21 +43,38 @@ const onChangePassword = function (event) {
     .then(ui.changePasswordSuccess)
     .catch(ui.changePasswordFailure)
 }
-const whoseTurn = {
-  playerX: true
-}
 
 const onNewGame = function (event) {
   event.preventDefault()
-  $('td').html('')
-  whoseTurn.playerX = true
   console.log('new game ran!')
-  api.createNewGame()
+  const data = getFormFields(this)
+  api.createNewGame(data)
     .then(ui.newGameSuccess)
     .catch(ui.newGameFailure)
 }
 
-const cells = []
+const showGameHistory = function (event) {
+  event.preventDefault()
+  console.log('gamehistoryran!')
+
+  const data = getFormFields(this)
+  api.gameHistory(data)
+    .then(ui.gameHistorySuccess)
+    .catch(ui.gameHistoryFailure)
+}
+
+//
+// const onPlay = function (event) {
+//   // event.preventDefault()
+//   // add an if signed in thing here?
+//   doTheGame()
+//   // api.play()
+//   //   .then(ui.playSuccess)
+//   //   .catch(ui.playFailure)
+// }
+const whoseTurn = {
+  player_x: true
+}
 
 const checkForWin = function () {
   if (($('#zero').html() === 'x') &&
@@ -138,40 +154,46 @@ const checkForWin = function () {
   } else {
   }
 }
+const board = ['', '', '', '', '', '', '', '', '']
 
 const doTheGame = function () {
-  if (whoseTurn.playerX === true) {
-    if ($(this).html() === '') {
-    // should it be this.store.over?
-      $(this).html('x')
-    // store.cells.push
+  for (let i = 0; i < board.length; i++) {
+    if (whoseTurn.player_x === true) {
+      console.log(this)
+      if ($('board[i]').html() === '') {
+        // should it be this.store.over?
+        // $(this).html('x')
+        board.splice(i, 1, 'x')
+      } else {
+        console.log()
+        $('h2').html('you can\'t do that!')
+      }
+      whoseTurn.playerX = false
+    } else if (whoseTurn.playerX === false) {
+      if ($(this).html() === '') {
+        $(this).html('o')
+        board.splice(i, 1, 'o')
+      // store.cells.push
+      } else {
+        $('h2').html('you can\'t do that!')
+      }
+      whoseTurn.playerX = true
     } else {
-      $('h2').html('you can\'t do that!')
+      $('h2').html('a bad is happening!')
     }
-    whoseTurn.playerX = false
-  } else if (whoseTurn.playerX === false) {
-    if ($(this).html() === '') {
-      $(this).html('o')
-    // store.cells.push
-    } else {
-      $('h2').html('you can\'t do that!')
-    }
-    whoseTurn.playerX = true
-  } else {
-    $('h2').html('a bad is happening!')
   }
   checkForWin()
-  cells.push($(this).html())
 }
-//
-// const onPlay = function () {
-//   // event.preventDefault()
-//   // add an if signed in thing here?
-//   doTheGame()
-//   // api.play()
-//   //   .then(ui.playSuccess)
-//   //   .catch(ui.playFailure)
-// }
+
+const inputStuff = function (event) {
+  event.preventDefault()
+  console.log('input stuff ran!')
+  // const data = getFormFields(this)
+  doTheGame()
+  // api.play()
+  //   .then(ui.playSuccess)
+  //   .catch(ui.playFailure)
+}
 
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
@@ -179,7 +201,8 @@ const addHandlers = () => {
   $('#sign-out').on('click', onSignOut)
   $('#change-password').on('submit', onChangePassword)
   $('#new-game').on('click', onNewGame)
-  $('td').on('click', doTheGame)
+  $('td').on('click', inputStuff)
+  $('#playhistory').on('click', showGameHistory)
 }
 
 module.exports = {

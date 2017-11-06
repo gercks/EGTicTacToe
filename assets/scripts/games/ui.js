@@ -55,6 +55,17 @@ const newGameFailure = function (error) {
   console.log('changePassword failure ran. error is :', error)
 }
 
+const getHistorySuccess = function () {
+  $('#message').text('game history gotten')
+  console.log('signOut success ran. and nothing was returned')
+  store.user = null
+}
+
+const getHistoryFailure = function (error) {
+  $('#message').text('Error on get game history')
+  console.log('signOut failure ran. error is :', error)
+}
+
 const playSuccess = function () {
   console.log('awesome move')
 }
@@ -75,5 +86,7 @@ module.exports = {
   newGameSuccess,
   newGameFailure,
   playSuccess,
-  playFailure
+  playFailure,
+  getHistorySuccess,
+  getHistoryFailure
 }

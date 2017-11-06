@@ -9,7 +9,7 @@ curl "${API}${URL_PATH}" \
   --data '{
   "game": {
     "cell": {
-      "index": "'"${INDEX}"'",
+      "index": "'"${INDEX}"'"
       "value": "'"${VALUE}"'"
     },
     "over": false

@@ -63,18 +63,27 @@ const gameHistory = function () {
     }
   })
 }
-//
-// const play = function () {
-//   return $.ajax({
-//     url: config.apiOrigin + '/games/' + store.user.id,
-//     method: 'PATCH',
-//     headers: {
-//       Authorization: 'Token token=' + store.user.token
-//     }
-//   })
-// }
 
-//
+const play = function (boop) {
+  const data = {
+    'game': {
+      'cell': {
+        'index': $(boop).val(),
+        'value': $(boop).html()
+      }
+    }
+  }
+
+  return $.ajax({
+    url: config.apiOrigin + '/games/' + store.user.id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
 // const show = function (x) {
 //   return $.ajax({
 //     url: config.apiOrigin + '/games/' + x,
@@ -91,7 +100,7 @@ module.exports = {
   signIn,
   signOut,
   changePassword,
-  // play,
+  play,
   createNewGame,
   gameHistory
 }

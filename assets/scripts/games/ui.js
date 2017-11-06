@@ -47,6 +47,7 @@ const changePasswordFailure = function (error) {
 
 const newGameSuccess = function () {
   $('#message').text('Created Game successfully')
+  $('td').html('')
   console.log('asdlkf')
 }
 

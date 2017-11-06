@@ -72,9 +72,9 @@ const showGameHistory = function (event) {
 //   //   .then(ui.playSuccess)
 //   //   .catch(ui.playFailure)
 // }
-const whoseTurn = {
-  player_x: true
-}
+// const whoseTurn = {
+//   player_x: true
+// }
 
 const checkForWin = function () {
   if (($('#zero').html() === 'x') &&
@@ -154,46 +154,43 @@ const checkForWin = function () {
   } else {
   }
 }
-const board = ['', '', '', '', '', '', '', '', '']
+
+const whoseTurn = {
+  playerX: true
+}
 
 const doTheGame = function () {
-  for (let i = 0; i < board.length; i++) {
-    if (whoseTurn.player_x === true) {
-      console.log(this)
-      if ($('board[i]').html() === '') {
-        // should it be this.store.over?
-        // $(this).html('x')
-        board.splice(i, 1, 'x')
-      } else {
-        console.log()
-        $('h2').html('you can\'t do that!')
-      }
-      whoseTurn.playerX = false
-    } else if (whoseTurn.playerX === false) {
-      if ($(this).html() === '') {
-        $(this).html('o')
-        board.splice(i, 1, 'o')
-      // store.cells.push
-      } else {
-        $('h2').html('you can\'t do that!')
-      }
-      whoseTurn.playerX = true
+  if (whoseTurn.playerX === true) {
+    if ($(this).html() === '') {
+      $(this).html('x')
     } else {
-      $('h2').html('a bad is happening!')
+      $('h2').html('you can\'t do that!')
     }
+    whoseTurn.playerX = false
+    checkForWin()
+  } else {
+    if ($(this).html() === '') {
+      $(this).html('o')
+    } else {
+      $('h2').html('you can\'t do that!')
+    }
+    whoseTurn.playerX = true
+    checkForWin()
   }
-  checkForWin()
+  api.play(this)
+    .then(ui.playSuccess)
+    .catch(ui.playFailure)
 }
 
-const inputStuff = function (event) {
-  event.preventDefault()
-  console.log('input stuff ran!')
-  // const data = getFormFields(this)
-  doTheGame()
-  // api.play()
-  //   .then(ui.playSuccess)
-  //   .catch(ui.playFailure)
-}
+// const inputStuff = function (event) {
+//   event.preventDefault()
+//   console.log('input stuff ran!')
+//   // const data = getFormFields(this)
+//   doTheGame()
+//   // api.play()
+//   //   .then(ui.playSuccess)
+//   //   .catch(ui.playFailure)
+// }
 
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
@@ -201,7 +198,7 @@ const addHandlers = () => {
   $('#sign-out').on('click', onSignOut)
   $('#change-password').on('submit', onChangePassword)
   $('#new-game').on('click', onNewGame)
-  $('td').on('click', inputStuff)
+  $('td').on('click', doTheGame)
   $('#playhistory').on('click', showGameHistory)
 }
 

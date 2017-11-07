@@ -45,35 +45,36 @@ const changePasswordFailure = function (error) {
   console.log('changePassword failure ran. error is :', error)
 }
 
-const newGameSuccess = function () {
-  $('#message').text('Created Game successfully')
+const newGameSuccess = function (response) {
+  $('#massage').text('Created Game successfully')
   $('td').html('')
   console.log('asdlkf')
+  store.game = response.game
 }
 
 const newGameFailure = function (error) {
-  $('#message').text('Error on change password')
+  $('massage').text('Error on change password')
   console.log('changePassword failure ran. error is :', error)
 }
 
-const getHistorySuccess = function () {
+const gameHistorySuccess = function (response) {
   $('#message').text('game history gotten')
-  console.log('signOut success ran. and nothing was returned')
-  store.user = null
+  console.log(response.games)
 }
 
-const getHistoryFailure = function (error) {
+const gameHistoryFailure = function (error) {
   $('#message').text('Error on get game history')
   console.log('signOut failure ran. error is :', error)
 }
 
-const playSuccess = function () {
-  console.log('awesome move')
+const playSuccess = function (response) {
+  console.log(response)
+  store.game = response.game
 }
 
 const playFailure = function (error) {
-  $('#message').text('you messed up...')
-  console.log('changePassword failure ran. error is :', error)
+  $('#massage').text('you messed up...')
+  console.log('play failure ran. error is :', error)
 }
 module.exports = {
   signUpSuccess,
@@ -88,6 +89,6 @@ module.exports = {
   newGameFailure,
   playSuccess,
   playFailure,
-  getHistorySuccess,
-  getHistoryFailure
+  gameHistorySuccess,
+  gameHistoryFailure
 }

@@ -64,18 +64,17 @@ const gameHistory = function () {
   })
 }
 
-const play = function (boop) {
+const play = function (event) {
   const data = {
     'game': {
       'cell': {
-        'index': $(boop).val(),
-        'value': $(boop).html()
+        'index': $(event.target).attr('value'),
+        'value': $(event.target).html()
       }
     }
   }
-
   return $.ajax({
-    url: config.apiOrigin + '/games/' + store.user.id,
+    url: config.apiOrigin + '/games/' + store.game.id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token

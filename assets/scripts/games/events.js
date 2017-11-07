@@ -55,10 +55,7 @@ const onNewGame = function (event) {
 
 const showGameHistory = function (event) {
   event.preventDefault()
-  console.log('gamehistoryran!')
-
-  const data = getFormFields(this)
-  api.gameHistory(data)
+  api.gameHistory()
     .then(ui.gameHistorySuccess)
     .catch(ui.gameHistoryFailure)
 }
@@ -80,67 +77,70 @@ const checkForWin = function () {
   if (($('#zero').html() === 'x') &&
   ($('#one').html() === 'x') &&
   ($('#two').html() === 'x')) {
-    $('h2').html('x wins!')
+    $('#massage').html('x wins!')
+    $('#zero').css('text-decoration', 'line-through')
+    $('#one').css('text-decoration', 'line-through')
+    $('#two').css('text-decoration', 'line-through')
   } else if (($('#three').html() === 'x') &&
 ($('#four').html() === 'x') &&
 ($('#five').html() === 'x')) {
-    $('h2').html('x wins!')
+    $('#massage').html('x wins!')
   } else if (($('#six').html() === 'x') &&
 ($('#seven').html() === 'x') &&
 ($('#eight').html() === 'x')) {
-    $('h2').html('x wins!')
+    $('#massage').html('x wins!')
   } else if (($('#zero').html() === 'x') &&
 ($('#three').html() === 'x') &&
 ($('#six').html() === 'x')) {
-    $('h2').html('x wins!')
+    $('#massage').html('x wins!')
   } else if (($('#one').html() === 'x') &&
 ($('#four').html() === 'x') &&
 ($('#seven').html() === 'x')) {
-    $('h2').html('x wins!')
+    $('#massage').html('x wins!')
   } else if (($('#two').html() === 'x') &&
 ($('#five').html() === 'x') &&
 ($('#eight').html() === 'x')) {
-    $('h2').html('x wins!')
+    $('#massage').html('x wins!')
   } else if (($('#zero').html() === 'x') &&
 ($('#four').html() === 'x') &&
 ($('#eight').html() === 'x')) {
-    $('h2').html('x wins!')
+    $('#massage').html('x wins!')
   } else if (($('#two').html() === 'x') &&
 ($('#four').html() === 'x') &&
 ($('#six').html() === 'x')) {
-    $('h2').html('x wins!')
+    $('#massage').html('x wins!')
   } else if (($('#zero').html() === 'o') &&
   ($('#one').html() === 'o') &&
   ($('#two').html() === 'o')) {
-    $('h2').html('o wins!')
+    $('#massage').html('o wins!')
   } else if (($('#three').html() === 'o') &&
 ($('#four').html() === 'o') &&
 ($('#five').html() === 'o')) {
-    $('h2').html('o wins!')
+    $('#massage').html('o wins!')
   } else if (($('#sio').html() === 'o') &&
 ($('#seven').html() === 'o') &&
 ($('#eight').html() === 'o')) {
-    $('h2').html('o wins!')
+    $('#massage').html('o wins!')
   } else if (($('#zero').html() === 'o') &&
 ($('#three').html() === 'o') &&
 ($('#sio').html() === 'o')) {
-    $('h2').html('o wins!')
+    $('#massage').html('o wins!')
   } else if (($('#one').html() === 'o') &&
 ($('#four').html() === 'o') &&
 ($('#seven').html() === 'o')) {
-    $('h2').html('o wins!')
+    $('#massage').html('o wins!')
   } else if (($('#two').html() === 'o') &&
 ($('#five').html() === 'o') &&
 ($('#eight').html() === 'o')) {
-    $('h2').html('o wins!')
+    $('#massage').html('o wins!')
   } else if (($('#zero').html() === 'o') &&
 ($('#four').html() === 'o') &&
 ($('#eight').html() === 'o')) {
-    $('h2').html('o wins!')
+    $('#massage').html('o wins!')
   } else if (($('#two').html() === 'o') &&
 ($('#four').html() === 'o') &&
 ($('#six').html() === 'o')) {
-    $('h2').html('o wins!')
+    $('#massage').html('o wins!')
   } else if (($('#zero').html() !== '') &&
   ($('#one').html() !== '') &&
   ($('#two').html() !== '') &&
@@ -150,7 +150,7 @@ const checkForWin = function () {
   ($('#six').html() !== '') &&
   ($('#seven').html() !== '') &&
   ($('#eight').html() !== '')) {
-    $('h2').html('it is a draw!')
+    $('#massage').html('it is a draw!')
   } else {
   }
 }
@@ -159,12 +159,13 @@ const whoseTurn = {
   playerX: true
 }
 
-const doTheGame = function () {
+const doTheGame = function (event) {
+  $('#massage').html('')
   if (whoseTurn.playerX === true) {
     if ($(this).html() === '') {
       $(this).html('x')
     } else {
-      $('h2').html('you can\'t do that!')
+      $('#massage').html('you can\'t do that!')
     }
     whoseTurn.playerX = false
     checkForWin()
@@ -172,25 +173,17 @@ const doTheGame = function () {
     if ($(this).html() === '') {
       $(this).html('o')
     } else {
-      $('h2').html('you can\'t do that!')
+      $('#massage').html('you can\'t do that!')
     }
     whoseTurn.playerX = true
     checkForWin()
   }
-  api.play(this)
+
+  // const bloop = event.target
+  api.play(event)
     .then(ui.playSuccess)
     .catch(ui.playFailure)
 }
-
-// const inputStuff = function (event) {
-//   event.preventDefault()
-//   console.log('input stuff ran!')
-//   // const data = getFormFields(this)
-//   doTheGame()
-//   // api.play()
-//   //   .then(ui.playSuccess)
-//   //   .catch(ui.playFailure)
-// }
 
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)

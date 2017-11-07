@@ -44,8 +44,16 @@ const onChangePassword = function (event) {
     .catch(ui.changePasswordFailure)
 }
 
+const gameLogic = {
+  playerX: true,
+  gameIsOver: false
+}
+
 const onNewGame = function (event) {
   event.preventDefault()
+  gameLogic.gameIsOver = false
+  gameLogic.playerX = true
+  $('td').html('')
   console.log('new game ran!')
   const data = getFormFields(this)
   api.createNewGame(data)
@@ -53,23 +61,22 @@ const onNewGame = function (event) {
     .catch(ui.newGameFailure)
 }
 
-const showGameHistory = function (event) {
-  event.preventDefault()
-  api.gameHistory()
-    .then(ui.gameHistorySuccess)
-    .catch(ui.gameHistoryFailure)
-}
+// const showGameHistory = function (event) {
+//   event.preventDefault()
+//   api.gameHistory()
+//     .then(ui.gameHistorySuccess)
+//     .catch(ui.gameHistoryFailure)
+// }
 
-const gameLogic = {
-  playerX: true,
-  gameIsOver: false
-}
 const gameOver = function (event) {
   gameLogic.gameIsOver = true
   gameLogic.playerX = true
   api.overTrue(event)
     .then(ui.overTrueSuccess)
     .catch(ui.overTrueFailure)
+  api.gameHistory()
+    .then(ui.gameHistorySuccess)
+    .catch(ui.gameHistoryFailure)
 }
 
 const gameWonX = function (event) {
@@ -78,6 +85,9 @@ const gameWonX = function (event) {
   api.overTrue(event)
     .then(ui.gameWonXSuccess)
     .catch(ui.overTrueFailure)
+  api.gameHistory()
+    .then(ui.gameHistorySuccess)
+    .catch(ui.gameHistoryFailure)
 }
 
 const gameWonO = function (event) {
@@ -86,6 +96,9 @@ const gameWonO = function (event) {
   api.overTrue(event)
     .then(ui.gameWonOSuccess)
     .catch(ui.overTrueFailure)
+  api.gameHistory()
+    .then(ui.gameHistorySuccess)
+    .catch(ui.gameHistoryFailure)
 }
 
 const checkForWin = function (event) {
@@ -204,26 +217,36 @@ const checkForWin = function (event) {
 const doTheGame = function (event) {
   $('#massage').html('')
   if (gameLogic.playerX === true) {
-    if ($(this).html() === '') {
-      $(this).html('x')
+    if ($(event.target).html() === '') {
+      $(event.target).html('x')
+      gameLogic.playerX = false
+      checkForWin()
+      api.play(event)
+        .then(ui.playSuccess)
+        .catch(ui.playFailure)
     } else {
-      $('#massage').html('you can\'t do that!')
+      $('#massage').html('this space is taken!')
     }
-    gameLogic.playerX = false
-    checkForWin()
   } else {
-    if ($(this).html() === '') {
-      $(this).html('o')
+    if ($(event.target).html() === '') {
+      $(event.target).html('o')
+      gameLogic.playerX = true
+      checkForWin()
+      api.play(event)
+        .then(ui.playSuccess)
+        .catch(ui.playFailure)
     } else {
-      $('#massage').html('you can\'t do that!')
+      $('#massage').html('this space is taken!')
     }
-    gameLogic.playerX = true
-    checkForWin()
   }
-  // const bloop = event.target
-  api.play(event)
-    .then(ui.playSuccess)
-    .catch(ui.playFailure)
+}
+
+const checkIfOver = function (event) {
+  if (gameLogic.gameIsOver === false) {
+    doTheGame(event)
+  } else {
+    $('#massage').html('this game is over - please click \'new game\'')
+  }
 }
 
 const addHandlers = () => {
@@ -232,8 +255,7 @@ const addHandlers = () => {
   $('#sign-out').on('click', onSignOut)
   $('#change-password').on('submit', onChangePassword)
   $('#new-game').on('click', onNewGame)
-  $('td').on('click', doTheGame)
-  $('#playhistory').on('click', showGameHistory)
+  $('td').on('click', checkIfOver)
 }
 
 module.exports = {

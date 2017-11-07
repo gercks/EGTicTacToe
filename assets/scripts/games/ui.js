@@ -63,6 +63,7 @@ const gameHistorySuccess = function (response) {
   $('#message').text(store.wins.length)
   $('#xwins').html('x has won ' + store.wins.xwins.length + ' games')
   $('#owins').html('o has won ' + store.wins.owins.length + ' games')
+  $('#draws').html('there has been ' + store.wins.draws.length + ' draws')
   // store.user = response.user
   store.games = response.games
   console.log(response.games)
@@ -86,6 +87,7 @@ const playFailure = function (error) {
 
 const overTrueSuccess = function (response) {
   store.game = response.game
+  store.wins.draws.push(1)
   console.log('it all ran!')
 }
 const gameWonXSuccess = function (response) {

@@ -3,7 +3,8 @@
 const store = {
   'wins': {
     'xwins': [],
-    'owins': []
+    'owins': [],
+    'draws': []
   }
 }
 module.exports = store

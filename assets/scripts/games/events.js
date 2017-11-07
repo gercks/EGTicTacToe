@@ -64,7 +64,6 @@ const gameLogic = {
   playerX: true,
   gameIsOver: false
 }
-
 const gameOver = function (event) {
   gameLogic.gameIsOver = true
   gameLogic.playerX = true
@@ -73,102 +72,118 @@ const gameOver = function (event) {
     .catch(ui.overTrueFailure)
 }
 
+const gameWonX = function (event) {
+  gameLogic.gameIsOver = true
+  gameLogic.playerX = true
+  api.overTrue(event)
+    .then(ui.gameWonXSuccess)
+    .catch(ui.overTrueFailure)
+}
+
+const gameWonO = function (event) {
+  gameLogic.gameIsOver = true
+  gameLogic.playerX = true
+  api.overTrue(event)
+    .then(ui.gameWonOSuccess)
+    .catch(ui.overTrueFailure)
+}
+
 const checkForWin = function (event) {
   if (($('#zero').html() === 'x') &&
   ($('#one').html() === 'x') &&
   ($('#two').html() === 'x')) {
     $('#massage').html('x wins!')
-    gameOver(event)
+    gameWonX()
     gameLogic.gameIsOver = true
   } else if (($('#three').html() === 'x') &&
 ($('#four').html() === 'x') &&
 ($('#five').html() === 'x')) {
     $('#massage').html('x wins!')
-    gameOver(event)
+    gameWonX()
     gameLogic.gameIsOver = true
   } else if (($('#six').html() === 'x') &&
 ($('#seven').html() === 'x') &&
 ($('#eight').html() === 'x')) {
     $('#massage').html('x wins!')
-    gameOver(event)
+    gameWonX()
     gameLogic.gameIsOver = true
   } else if (($('#zero').html() === 'x') &&
 ($('#three').html() === 'x') &&
 ($('#six').html() === 'x')) {
     $('#massage').html('x wins!')
-    gameOver(event)
+    gameWonX()
     gameLogic.gameIsOver = true
   } else if (($('#one').html() === 'x') &&
 ($('#four').html() === 'x') &&
 ($('#seven').html() === 'x')) {
     $('#massage').html('x wins!')
-    gameOver(event)
+    gameWonX()
     gameLogic.gameIsOver = true
   } else if (($('#two').html() === 'x') &&
 ($('#five').html() === 'x') &&
 ($('#eight').html() === 'x')) {
     $('#massage').html('x wins!')
-    gameOver(event)
+    gameWonX()
     gameLogic.gameIsOver = true
   } else if (($('#zero').html() === 'x') &&
 ($('#four').html() === 'x') &&
 ($('#eight').html() === 'x')) {
     $('#massage').html('x wins!')
-    gameOver(event)
+    gameWonX()
     gameLogic.gameIsOver = true
   } else if (($('#two').html() === 'x') &&
 ($('#four').html() === 'x') &&
 ($('#six').html() === 'x')) {
     $('#massage').html('x wins!')
-    gameOver(event)
+    gameWonX()
     gameLogic.gameIsOver = true
   } else if (($('#zero').html() === 'o') &&
   ($('#one').html() === 'o') &&
   ($('#two').html() === 'o')) {
     $('#massage').html('o wins!')
-    gameOver(event)
+    gameWonO()
     gameLogic.gameIsOver = true
   } else if (($('#three').html() === 'o') &&
 ($('#four').html() === 'o') &&
 ($('#five').html() === 'o')) {
     $('#massage').html('o wins!')
-    gameOver(event)
+    gameWonO()
     gameLogic.gameIsOver = true
   } else if (($('#sio').html() === 'o') &&
 ($('#seven').html() === 'o') &&
 ($('#eight').html() === 'o')) {
     $('#massage').html('o wins!')
-    gameOver(event)
+    gameWonO()
     gameLogic.gameIsOver = true
   } else if (($('#zero').html() === 'o') &&
 ($('#three').html() === 'o') &&
 ($('#sio').html() === 'o')) {
     $('#massage').html('o wins!')
-    gameOver(event)
+    gameWonO()
     gameLogic.gameIsOver = true
   } else if (($('#one').html() === 'o') &&
 ($('#four').html() === 'o') &&
 ($('#seven').html() === 'o')) {
     $('#massage').html('o wins!')
-    gameOver(event)
+    gameWonO()
     gameLogic.gameIsOver = true
   } else if (($('#two').html() === 'o') &&
 ($('#five').html() === 'o') &&
 ($('#eight').html() === 'o')) {
     $('#massage').html('o wins!')
-    gameOver(event)
+    gameWonO()
     gameLogic.gameIsOver = true
   } else if (($('#zero').html() === 'o') &&
 ($('#four').html() === 'o') &&
 ($('#eight').html() === 'o')) {
     $('#massage').html('o wins!')
-    gameOver(event)
+    gameWonO()
     gameLogic.gameIsOver = true
   } else if (($('#two').html() === 'o') &&
 ($('#four').html() === 'o') &&
 ($('#six').html() === 'o')) {
     $('#massage').html('o wins!')
-    gameOver(event)
+    gameWonO()
     gameLogic.gameIsOver = true
   } else if (($('#zero').html() !== '') &&
   ($('#one').html() !== '') &&
@@ -180,7 +195,7 @@ const checkForWin = function (event) {
   ($('#seven').html() !== '') &&
   ($('#eight').html() !== '')) {
     $('#massage').html('it is a draw!')
-    gameOver(event)
+    gameOver()
     gameLogic.gameIsOver = true
   } else {
   }

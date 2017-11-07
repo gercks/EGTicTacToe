@@ -1,6 +1,9 @@
 'use strict'
 
 const store = {
-  'wins': []
+  'wins': {
+    'xwins': [],
+    'owins': []
+  }
 }
 module.exports = store

@@ -77,7 +77,7 @@ const gameHistoryFailure = function (error) {
 
 const playSuccess = function (response) {
   console.log(response)
-  $('#message').html('')
+  $('#message').html('sweet move!')
   store.game = response.game
 }
 

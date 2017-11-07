@@ -47,9 +47,17 @@ h1, .signinreminder {
   color: $black;
   font-weight: bold;
 }
+#new-game {
+padding: 10px;
+color: $black;
+background-color: pink;
+}
+.scoreboard {
+  text-align: center;
+  margin: auto;
+}
 .stats {
-  float: left;
-  margin: 0 auto;
+  margin: 10px;
   padding: 10px;
   border: 1px solid $black;
 }
@@ -57,9 +65,11 @@ h1, .signinreminder {
 table {
   clear: both;
 }
-// p {
-// text-align: center;
-// }
+
+#message {
+  font-size: 10px;
+}
+
 #zero {
   border-right: 10px solid $black;
   border-bottom: 10px solid $black;

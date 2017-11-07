@@ -21,6 +21,7 @@ body {
     text-align: center;
     vertical-align: middle;
     width: 120px;
+    // border: 10px solid $black;
 }
 
 .board td:hover {
@@ -35,14 +36,7 @@ body {
   float: left;
   margin: 0 40px;
 }
-#newgame {
-  float: right;
-  background-color: red;
-  padding: 10px;
-  border: 10px solid $black;
-
-}
-h1, h2, h3, p {
+h1, h2, h3, p, #newgame, #playhistory {
 text-align: center;
 }
 h2 {

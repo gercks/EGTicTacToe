@@ -45,24 +45,56 @@ const changePasswordFailure = function (error) {
   console.log('changePassword failure ran. error is :', error)
 }
 
-const newGameSuccess = function () {
-  $('#message').text('Created Game successfully')
+const newGameSuccess = function (response) {
+  $('#massage').text('Created Game successfully')
+  $('td').html('')
+  $('.keephidingme').show()
   console.log('asdlkf')
+  store.game = response.game
 }
 
 const newGameFailure = function (error) {
-  $('#message').text('Error on change password')
+  $('massage').text('Error on change password')
   console.log('changePassword failure ran. error is :', error)
 }
 
-const playSuccess = function () {
-  console.log('awesome move')
+const gameHistorySuccess = function (response) {
+  $('#message').text('you\'ve won some, you\'ve lost some')
+  store.user = response.user
+  store.games = response.games
+  // for (let i = 0; i < games.length; i++) {
+  //   let games = response.games
+  //   if (games.cells)
+  //
+  // }
+  console.log(response.games)
+}
+
+const gameHistoryFailure = function (error) {
+  $('#message').text('Error on get game history')
+  console.log('signOut failure ran. error is :', error)
+}
+
+const playSuccess = function (response) {
+  console.log(response)
+  $('#message').html('')
+  store.game = response.game
 }
 
 const playFailure = function (error) {
-  $('#message').text('you messed up...')
-  console.log('changePassword failure ran. error is :', error)
+  $('#massage').text('you messed up...')
+  console.log('play failure ran. error is :', error)
 }
+
+const overTrueSuccess = function (response) {
+  store.game = response.game
+  console.log('it all ran!')
+}
+const overTrueFailure = function (error) {
+  $('#massage').text('you messed up...')
+  console.log('play failure ran. error is :', error)
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -75,5 +107,9 @@ module.exports = {
   newGameSuccess,
   newGameFailure,
   playSuccess,
-  playFailure
+  playFailure,
+  gameHistorySuccess,
+  gameHistoryFailure,
+  overTrueSuccess,
+  overTrueFailure
 }

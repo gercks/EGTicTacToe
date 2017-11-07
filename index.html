@@ -84,26 +84,24 @@
 </div>
 </nav>
 <h2 id="message"></h2>
-  <h1>The best tic-tac-toe game in the world!</h1>
-  <h3>Sign in to play!</h3>
+  <h1>TIC TAC TOE!</h1>
+  <h3 class="signinreminder">Sign in to play!</h3>
 <div class="hideme">
   <div id="newgame">
   <button id="new-game">New Game</button>
   </div>
 <br>
-<div id="playhistory">
-  <button>Get play history</button>
-</div>
-<br>
 <div class="keephidingme">
 <h2 id="massage"></h2>
 <br>
-<div class="stats">
-<h4 id="xwins"></h4>
-<h4 id="owins"></h4>
-<h4 id="draws"></h4>
+<div class=scoreboard>
+  <h3 id="scoreboard">Scoreboard</h3>
+<h4 class="stats" id="xwins">x wins: </h4>
+<h4 class="stats" id="draws">draws: </h4>
+<h4 class="stats" id="owins">o wins: </h4>
 </div>
-         <div id="tablefrominternet" class="container">
+
+<br>
            <table id="board" class="board">
   <tr>
       <td id="zero" class="col-md-4 box" value="0"></td>
@@ -121,7 +119,6 @@
       <td id="eight" class="col-md-4 box" value="8"></td>
   </tr>
 </table>
-</div>
 </div>
 </div>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

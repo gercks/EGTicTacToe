@@ -15,6 +15,7 @@ const signUpFailure = function (error) {
 const signInSuccess = function (response) {
   $('#message').text('Signed in successfully')
   $('.hideme').show()
+  $('.signinreminder').hide()
   console.log('signIn success ran. data is :', response)
   store.user = response.user
 }
@@ -61,9 +62,9 @@ const newGameFailure = function (error) {
 
 const gameHistorySuccess = function (response) {
   $('#message').text(store.wins.length)
-  $('#xwins').html('x has won ' + store.wins.xwins.length + ' games')
-  $('#owins').html('o has won ' + store.wins.owins.length + ' games')
-  $('#draws').html('there has been ' + store.wins.draws.length + ' draws')
+  $('#xwins').html('x wins: ' + store.wins.xwins.length)
+  $('#owins').html('o wins: ' + store.wins.owins.length)
+  $('#draws').html('draws: ' + store.wins.draws.length)
   // store.user = response.user
   store.games = response.games
   console.log(response.games)

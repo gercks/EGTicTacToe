@@ -8,7 +8,7 @@ const signUpSuccess = function (data) {
 }
 
 const signUpFailure = function (error) {
-  $('#message').text('Error on sign up')
+  $('#message').text('Error on sign up. Please try again.')
   console.error(error)
 }
 
@@ -21,18 +21,19 @@ const signInSuccess = function (response) {
 }
 
 const signInFailure = function (error) {
-  $('#message').text('Error on sign in')
+  $('#message').text('Error on sign in. Please try again.')
   console.log('signIn failure ran. error is :', error)
 }
 
 const signOutSuccess = function () {
   $('#message').text('Signed out successfully')
   console.log('signOut success ran. and nothing was returned')
+  $('.hideme').hide()
   store.user = null
 }
 
 const signOutFailure = function (error) {
-  $('#message').text('Error on sign out')
+  $('#message').text('Error on sign out. Please try again.')
   console.log('signOut failure ran. error is :', error)
 }
 
@@ -42,7 +43,7 @@ const changePasswordSuccess = function () {
 }
 
 const changePasswordFailure = function (error) {
-  $('#message').text('Error on change password')
+  $('#message').text('Error on change password. Please try again.')
   console.log('changePassword failure ran. error is :', error)
 }
 

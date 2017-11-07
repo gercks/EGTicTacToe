@@ -67,6 +67,7 @@ const gameLogic = {
 
 const gameOver = function (event) {
   gameLogic.gameIsOver = true
+  gameLogic.playerX = true
   api.overTrue(event)
     .then(ui.overTrueSuccess)
     .catch(ui.overTrueFailure)
@@ -204,7 +205,6 @@ const doTheGame = function (event) {
     gameLogic.playerX = true
     checkForWin()
   }
-
   // const bloop = event.target
   api.play(event)
     .then(ui.playSuccess)

@@ -47,6 +47,7 @@ const changePasswordFailure = function (error) {
 
 const newGameSuccess = function (response) {
   $('#massage').text('Created Game successfully')
+  $('#message').text('')
   $('td').html('')
   $('.keephidingme').show()
   console.log('asdlkf')
@@ -59,14 +60,9 @@ const newGameFailure = function (error) {
 }
 
 const gameHistorySuccess = function (response) {
-  $('#message').text('you\'ve won some, you\'ve lost some')
-  store.user = response.user
+  $('#message').text(store.wins.length)
+  // store.user = response.user
   store.games = response.games
-  // for (let i = 0; i < games.length; i++) {
-  //   let games = response.games
-  //   if (games.cells)
-  //
-  // }
   console.log(response.games)
 }
 
@@ -88,6 +84,7 @@ const playFailure = function (error) {
 
 const overTrueSuccess = function (response) {
   store.game = response.game
+  store.wins.push(1)
   console.log('it all ran!')
 }
 const overTrueFailure = function (error) {

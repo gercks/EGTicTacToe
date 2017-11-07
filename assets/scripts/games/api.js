@@ -99,17 +99,6 @@ const play = function (event) {
   })
 }
 
-// const show = function (x) {
-//   return $.ajax({
-//     url: config.apiOrigin + '/games/' + x,
-//     method: 'GET'
-//   })
-// }
-//
-// module.exports = {
-//   show
-// }
-
 module.exports = {
   signUp,
   signIn,

@@ -59,7 +59,14 @@ const newGameFailure = function (error) {
 }
 
 const gameHistorySuccess = function (response) {
-  $('#message').text('game history gotten')
+  $('#message').text('you\'ve won some, you\'ve lost some')
+  store.user = response.user
+  store.games = response.games
+  // for (let i = 0; i < games.length; i++) {
+  //   let games = response.games
+  //   if (games.cells)
+  //
+  // }
   console.log(response.games)
 }
 

@@ -47,7 +47,6 @@ const onChangePassword = function (event) {
 const onNewGame = function (event) {
   event.preventDefault()
   console.log('new game ran!')
-  gameLogic.gameIsOver = false
   const data = getFormFields(this)
   api.createNewGame(data)
     .then(ui.newGameSuccess)
@@ -188,7 +187,6 @@ const checkForWin = function (event) {
 
 const doTheGame = function (event) {
   $('#massage').html('')
-  if (gameLogic.gameIsOver = false) {
   if (gameLogic.playerX === true) {
     if ($(this).html() === '') {
       $(this).html('x')
@@ -206,13 +204,12 @@ const doTheGame = function (event) {
     gameLogic.playerX = true
     checkForWin()
   }
+
+  // const bloop = event.target
   api.play(event)
     .then(ui.playSuccess)
     .catch(ui.playFailure)
-} else {
-
 }
-
 
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)

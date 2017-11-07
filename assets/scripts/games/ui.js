@@ -47,6 +47,7 @@ const changePasswordFailure = function (error) {
 
 const newGameSuccess = function (response) {
   $('#massage').text('Created Game successfully')
+  $('#message').text('')
   $('td').html('')
   $('.keephidingme').show()
   console.log('asdlkf')
@@ -59,14 +60,11 @@ const newGameFailure = function (error) {
 }
 
 const gameHistorySuccess = function (response) {
-  $('#message').text('you\'ve won some, you\'ve lost some')
-  store.user = response.user
+  $('#message').text(store.wins.length)
+  $('#xwins').html('x has won ' + store.wins.xwins.length + ' games')
+  $('#owins').html('o has won ' + store.wins.owins.length + ' games')
+  // store.user = response.user
   store.games = response.games
-  // for (let i = 0; i < games.length; i++) {
-  //   let games = response.games
-  //   if (games.cells)
-  //
-  // }
   console.log(response.games)
 }
 
@@ -90,6 +88,16 @@ const overTrueSuccess = function (response) {
   store.game = response.game
   console.log('it all ran!')
 }
+const gameWonXSuccess = function (response) {
+  store.game = response.game
+  store.wins.xwins.push(1)
+  console.log('it all ran!')
+}
+const gameWonOSuccess = function (response) {
+  store.game = response.game
+  store.wins.owins.push(1)
+  console.log('it all ran!')
+}
 const overTrueFailure = function (error) {
   $('#massage').text('you messed up...')
   console.log('play failure ran. error is :', error)
@@ -111,5 +119,7 @@ module.exports = {
   gameHistorySuccess,
   gameHistoryFailure,
   overTrueSuccess,
-  overTrueFailure
+  overTrueFailure,
+  gameWonOSuccess,
+  gameWonXSuccess
 }

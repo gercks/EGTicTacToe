@@ -47,6 +47,7 @@ const onChangePassword = function (event) {
 const onNewGame = function (event) {
   event.preventDefault()
   console.log('new game ran!')
+  gameLogic.gameIsOver = false
   const data = getFormFields(this)
   api.createNewGame(data)
     .then(ui.newGameSuccess)
@@ -60,87 +61,115 @@ const showGameHistory = function (event) {
     .catch(ui.gameHistoryFailure)
 }
 
-//
-// const onPlay = function (event) {
-//   // event.preventDefault()
-//   // add an if signed in thing here?
-//   doTheGame()
-//   // api.play()
-//   //   .then(ui.playSuccess)
-//   //   .catch(ui.playFailure)
-// }
-// const whoseTurn = {
-//   player_x: true
-// }
+const gameLogic = {
+  playerX: true,
+  gameIsOver: false
+}
 
-const checkForWin = function () {
+const gameOver = function (event) {
+  gameLogic.gameIsOver = true
+  api.overTrue(event)
+    .then(ui.overTrueSuccess)
+    .catch(ui.overTrueFailure)
+}
+
+const checkForWin = function (event) {
   if (($('#zero').html() === 'x') &&
   ($('#one').html() === 'x') &&
   ($('#two').html() === 'x')) {
     $('#massage').html('x wins!')
-    $('#zero').css('text-decoration', 'line-through')
-    $('#one').css('text-decoration', 'line-through')
-    $('#two').css('text-decoration', 'line-through')
+    gameOver(event)
+    gameLogic.gameIsOver = true
   } else if (($('#three').html() === 'x') &&
 ($('#four').html() === 'x') &&
 ($('#five').html() === 'x')) {
     $('#massage').html('x wins!')
+    gameOver(event)
+    gameLogic.gameIsOver = true
   } else if (($('#six').html() === 'x') &&
 ($('#seven').html() === 'x') &&
 ($('#eight').html() === 'x')) {
     $('#massage').html('x wins!')
+    gameOver(event)
+    gameLogic.gameIsOver = true
   } else if (($('#zero').html() === 'x') &&
 ($('#three').html() === 'x') &&
 ($('#six').html() === 'x')) {
     $('#massage').html('x wins!')
+    gameOver(event)
+    gameLogic.gameIsOver = true
   } else if (($('#one').html() === 'x') &&
 ($('#four').html() === 'x') &&
 ($('#seven').html() === 'x')) {
     $('#massage').html('x wins!')
+    gameOver(event)
+    gameLogic.gameIsOver = true
   } else if (($('#two').html() === 'x') &&
 ($('#five').html() === 'x') &&
 ($('#eight').html() === 'x')) {
     $('#massage').html('x wins!')
+    gameOver(event)
+    gameLogic.gameIsOver = true
   } else if (($('#zero').html() === 'x') &&
 ($('#four').html() === 'x') &&
 ($('#eight').html() === 'x')) {
     $('#massage').html('x wins!')
+    gameOver(event)
+    gameLogic.gameIsOver = true
   } else if (($('#two').html() === 'x') &&
 ($('#four').html() === 'x') &&
 ($('#six').html() === 'x')) {
     $('#massage').html('x wins!')
+    gameOver(event)
+    gameLogic.gameIsOver = true
   } else if (($('#zero').html() === 'o') &&
   ($('#one').html() === 'o') &&
   ($('#two').html() === 'o')) {
     $('#massage').html('o wins!')
+    gameOver(event)
+    gameLogic.gameIsOver = true
   } else if (($('#three').html() === 'o') &&
 ($('#four').html() === 'o') &&
 ($('#five').html() === 'o')) {
     $('#massage').html('o wins!')
+    gameOver(event)
+    gameLogic.gameIsOver = true
   } else if (($('#sio').html() === 'o') &&
 ($('#seven').html() === 'o') &&
 ($('#eight').html() === 'o')) {
     $('#massage').html('o wins!')
+    gameOver(event)
+    gameLogic.gameIsOver = true
   } else if (($('#zero').html() === 'o') &&
 ($('#three').html() === 'o') &&
 ($('#sio').html() === 'o')) {
     $('#massage').html('o wins!')
+    gameOver(event)
+    gameLogic.gameIsOver = true
   } else if (($('#one').html() === 'o') &&
 ($('#four').html() === 'o') &&
 ($('#seven').html() === 'o')) {
     $('#massage').html('o wins!')
+    gameOver(event)
+    gameLogic.gameIsOver = true
   } else if (($('#two').html() === 'o') &&
 ($('#five').html() === 'o') &&
 ($('#eight').html() === 'o')) {
     $('#massage').html('o wins!')
+    gameOver(event)
+    gameLogic.gameIsOver = true
   } else if (($('#zero').html() === 'o') &&
 ($('#four').html() === 'o') &&
 ($('#eight').html() === 'o')) {
     $('#massage').html('o wins!')
+    gameOver(event)
+    gameLogic.gameIsOver = true
   } else if (($('#two').html() === 'o') &&
 ($('#four').html() === 'o') &&
 ($('#six').html() === 'o')) {
     $('#massage').html('o wins!')
+    gameOver(event)
+    gameLogic.gameIsOver = true
   } else if (($('#zero').html() !== '') &&
   ($('#one').html() !== '') &&
   ($('#two').html() !== '') &&
@@ -151,23 +180,22 @@ const checkForWin = function () {
   ($('#seven').html() !== '') &&
   ($('#eight').html() !== '')) {
     $('#massage').html('it is a draw!')
+    gameOver(event)
+    gameLogic.gameIsOver = true
   } else {
   }
 }
 
-const whoseTurn = {
-  playerX: true
-}
-
 const doTheGame = function (event) {
   $('#massage').html('')
-  if (whoseTurn.playerX === true) {
+  if (gameLogic.gameIsOver = false) {
+  if (gameLogic.playerX === true) {
     if ($(this).html() === '') {
       $(this).html('x')
     } else {
       $('#massage').html('you can\'t do that!')
     }
-    whoseTurn.playerX = false
+    gameLogic.playerX = false
     checkForWin()
   } else {
     if ($(this).html() === '') {
@@ -175,15 +203,16 @@ const doTheGame = function (event) {
     } else {
       $('#massage').html('you can\'t do that!')
     }
-    whoseTurn.playerX = true
+    gameLogic.playerX = true
     checkForWin()
   }
-
-  // const bloop = event.target
   api.play(event)
     .then(ui.playSuccess)
     .catch(ui.playFailure)
+} else {
+
 }
+
 
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)

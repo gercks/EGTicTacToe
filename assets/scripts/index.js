@@ -13,6 +13,7 @@ $(() => {
 })
 
 $('.hideme').hide()
+$('.keephidingme').hide()
 
 // const game = {
 //   'id': 1,

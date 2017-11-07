@@ -64,6 +64,22 @@ const gameHistory = function () {
   })
 }
 
+const overTrue = function (event) {
+  const data = {
+    'game': {
+      'over': true
+    }
+  }
+  return $.ajax({
+    url: config.apiOrigin + '/games/' + store.game.id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
 const play = function (event) {
   const data = {
     'game': {
@@ -101,5 +117,6 @@ module.exports = {
   changePassword,
   play,
   createNewGame,
-  gameHistory
+  gameHistory,
+  overTrue
 }

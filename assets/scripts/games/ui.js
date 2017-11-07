@@ -48,6 +48,7 @@ const changePasswordFailure = function (error) {
 const newGameSuccess = function (response) {
   $('#massage').text('Created Game successfully')
   $('td').html('')
+  $('.keephidingme').show()
   console.log('asdlkf')
   store.game = response.game
 }
@@ -69,6 +70,7 @@ const gameHistoryFailure = function (error) {
 
 const playSuccess = function (response) {
   console.log(response)
+  $('#message').html('')
   store.game = response.game
 }
 
@@ -76,6 +78,16 @@ const playFailure = function (error) {
   $('#massage').text('you messed up...')
   console.log('play failure ran. error is :', error)
 }
+
+const overTrueSuccess = function (response) {
+  store.game = response.game
+  console.log('it all ran!')
+}
+const overTrueFailure = function (error) {
+  $('#massage').text('you messed up...')
+  console.log('play failure ran. error is :', error)
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -90,5 +102,7 @@ module.exports = {
   playSuccess,
   playFailure,
   gameHistorySuccess,
-  gameHistoryFailure
+  gameHistoryFailure,
+  overTrueSuccess,
+  overTrueFailure
 }

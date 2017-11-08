@@ -1,61 +1,53 @@
-[![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
 
-# browser-template
+# Tic-tac-toe
+A classic game of tic-tac-toe, meant to be played by two users on the same computer.
 
-A template for starting front-end projects. Webpack for `require` system, build
-pipeline, and development server. Boostrap and Handlebars.js included. No
-front-end frameworks included.
+You can play here: https://gercks.github.io/EGTicTacToe/
 
-## Installation
+## Technologies used
+This game was made using
+- HTML
+- CSS
+- SASS
+- Javascript
+- jQuery
 
-1.  [Download](../../archive/master.zip) this template.
-1.  Unzip and rename the template directory.
-1.  Empty [`README.md`](README.md) and fill with your own content.
-1.  Replace all instances of `ga-wdi-boston.browser-template` with the name of your project.
-1.  Move into the new project and `git init`
-1.  Add all of the files in your project with the command `git add -A`
-  -   *Note:* THIS IS THE ONLY TIME YOU SHOULD RUN THIS COMMAND
-1.  Commit all of your files with the command `git commit`
-  -   Your commit title should read `Initial commit`
-1.  Install dependencies with `npm install`.
+## How it was made
 
-## Structure
+This game is the first real coding project I have ever done, so had especially humble beginnings. For example, here are the original wireframes:
+https://imgur.com/a/qnR8A
 
-Developers should store JavaScript files in [`assets/scripts`](assets/scripts).
-The "manifest" or entry-point is
-[`assets/scripts/index.js`](assets/scripts/index.js). In general, only
-application initialization goes in this file. It's normal for developers to
-start putting all code in this file, but encourage them to break out different
-responsibilities and use the `require` syntax put references where they're
-needed.
+Most of this code is different from how I originally imagined and planned it. However, for the most part, I think it is better.
 
-Developers should set `config.apiOrigins.production` (and
-`config.apiOrigins.development` if it differs from the default).  With
-`apiOrigins` set, developers may rely on `config.apiOrigin` as the base for API
-URLs.
+I began by building the basic HTML, CSS, and SASS necessary to display a board. I also used bootstrap to format. I
 
-Developers should store styles in [`assets/styles`](assets/styles) and load them
-from [`assets/styles/index.scss`](assets/styles/index.scss).
+I then set up my game logic, which uses a jQuery click handler to react to each move made. The click event is passed through several functions that, in order:
+  - check if the game is in progress over
+  - check if it is the turn of x or o
+  - check if the square that was clicked has already been taken
+  - if all of the prior conditions are in order, change the html of that square to x or o
+  - check if the move just made means the game has been won
 
-Developers should use [getFormFields](forms.md) to retrieve form data to send to
-an API.
+I updated my game logic over the course of building the game, but this is the basic structure I was aiming for at the beginning and was able to put together.
 
-To deploy a browser-template based SPA, run `grunt deploy`.
+Finally, I set up my APIs. Signing up, in, and out, and changing a user's password, were fairly straightforward to put together. However, putting together my game API was a real challenge for me. Fortunately, I was able to set up APIs to create a new game, to track and display the moves made in each game, and to track and display the number of games won by each player.
 
-## Tasks
+I ran into several struggles along the way, and found that one of the best ways to problem solve if I wasn't sure what was causing an error was to trace back by steps and console.log in places where I thought the error might have occurred. I was also very fortunate to have help from some very kind and patient fellow students and teachers.
 
-Developers should run these often!
+## Improvements for next time
 
--   `grunt nag` or just `grunt`: runs code quality analysis tools on your code
-    and complains
--   `grunt make-standard`: reformats all your code in the JavaScript Standard Style
--   `grunt <server|serve|s>`: generates bundles, watches, and livereloads
--   `grunt test`: runs any automated tests, depends on `grunt build`
--   `grunt build`: place bundled styles and scripts where `index.html` can find
-    them
+There are several aspects of this game that I plan on updating when I have the chance. First off, the CSS and general design is not ideal in my view, and I would update it to use more appealing fonts and colors, as well as to be formatted in a more cohesive way.
 
-## [License](LICENSE)
+As for my code, the biggest thing I would change would be to connect my index.js file to my events.js file. I was unable to connect the two and am still not sure why, but am confident that with some tinkering I would be able to and thereby organize my code better. I would also like to re-do the function I used to check for a win - it is long and repetitive and I am certain that with more time and effort I could at least halve it in length if not more.
 
-1.  All content is licensed under a CC­BY­NC­SA 4.0 license.
-1.  All software code is licensed under GNU GPLv3. For commercial use or
-    alternative licensing, please contact legal@ga.co.
+### User Stories
+
+When building this game, I kept the following user stories in mind.
+
+- Easy sign up, in, and out
+- Able to change password
+- Be able to click on spaces on the gameboard to make a move
+- Be able to select another space if an already taken space is accidentally selected
+- Be able to choose to play a new game when another ends
+- See when and by whom the game has been won 
+- See how many games have been won by each side

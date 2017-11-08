@@ -22,6 +22,7 @@ const signIn = function (data) {
 }
 
 const signOut = function () {
+  console.log('it worked!')
   return $.ajax({
     url: config.apiOrigin + '/sign-out/' + store.user.id,
     method: 'DELETE',

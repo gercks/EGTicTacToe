@@ -100,23 +100,26 @@ const gameWonO = function (event) {
     .then(ui.gameHistorySuccess)
     .catch(ui.gameHistoryFailure)
 }
-
+// #zero, #one, #two, #three, #four, #five, #six, #seven, #eight,
 const checkForWin = function (event) {
   if (($('#zero').html() === 'x') &&
   ($('#one').html() === 'x') &&
   ($('#two').html() === 'x')) {
     $('#massage').html('x wins!')
+    $('#zero, #one, #two').css('background-color', 'white')
     gameWonX()
     gameLogic.gameIsOver = true
   } else if (($('#three').html() === 'x') &&
 ($('#four').html() === 'x') &&
 ($('#five').html() === 'x')) {
     $('#massage').html('x wins!')
+    $('#three, #four, #five').css('background-color', 'white')
     gameWonX()
     gameLogic.gameIsOver = true
   } else if (($('#six').html() === 'x') &&
 ($('#seven').html() === 'x') &&
 ($('#eight').html() === 'x')) {
+    $('#six, #seven, #eight').css('background-color', 'white')
     $('#massage').html('x wins!')
     gameWonX()
     gameLogic.gameIsOver = true
@@ -124,78 +127,91 @@ const checkForWin = function (event) {
 ($('#three').html() === 'x') &&
 ($('#six').html() === 'x')) {
     $('#massage').html('x wins!')
+    $('#zero, #three, #six').css('background-color', 'white')
     gameWonX()
     gameLogic.gameIsOver = true
   } else if (($('#one').html() === 'x') &&
 ($('#four').html() === 'x') &&
 ($('#seven').html() === 'x')) {
     $('#massage').html('x wins!')
+    $('#one, #seven, #four').css('background-color', 'white')
     gameWonX()
     gameLogic.gameIsOver = true
   } else if (($('#two').html() === 'x') &&
 ($('#five').html() === 'x') &&
 ($('#eight').html() === 'x')) {
     $('#massage').html('x wins!')
+    $('#two, #five, #eight').css('background-color', 'white')
     gameWonX()
     gameLogic.gameIsOver = true
   } else if (($('#zero').html() === 'x') &&
 ($('#four').html() === 'x') &&
 ($('#eight').html() === 'x')) {
     $('#massage').html('x wins!')
+    $('#zero, #four, #eight').css('background-color', 'white')
     gameWonX()
     gameLogic.gameIsOver = true
   } else if (($('#two').html() === 'x') &&
 ($('#four').html() === 'x') &&
 ($('#six').html() === 'x')) {
     $('#massage').html('x wins!')
+    $('#two, #four, #six').css('background-color', 'white')
     gameWonX()
     gameLogic.gameIsOver = true
   } else if (($('#zero').html() === 'o') &&
   ($('#one').html() === 'o') &&
   ($('#two').html() === 'o')) {
     $('#massage').html('o wins!')
+    $('#zero, #one, #two').css('background-color', 'white')
     gameWonO()
     gameLogic.gameIsOver = true
   } else if (($('#three').html() === 'o') &&
 ($('#four').html() === 'o') &&
 ($('#five').html() === 'o')) {
     $('#massage').html('o wins!')
+    $('#three, #four, #five').css('background-color', 'white')
     gameWonO()
     gameLogic.gameIsOver = true
-  } else if (($('#sio').html() === 'o') &&
+  } else if (($('#six').html() === 'o') &&
 ($('#seven').html() === 'o') &&
 ($('#eight').html() === 'o')) {
     $('#massage').html('o wins!')
+    $('#six, #seven, #eight').css('background-color', 'white')
     gameWonO()
     gameLogic.gameIsOver = true
   } else if (($('#zero').html() === 'o') &&
 ($('#three').html() === 'o') &&
-($('#sio').html() === 'o')) {
+($('#six').html() === 'o')) {
     $('#massage').html('o wins!')
+    $('#zero, #three, #six').css('background-color', 'white')
     gameWonO()
     gameLogic.gameIsOver = true
   } else if (($('#one').html() === 'o') &&
 ($('#four').html() === 'o') &&
 ($('#seven').html() === 'o')) {
     $('#massage').html('o wins!')
+    $('#one, #seven, #four').css('background-color', 'white')
     gameWonO()
     gameLogic.gameIsOver = true
   } else if (($('#two').html() === 'o') &&
 ($('#five').html() === 'o') &&
 ($('#eight').html() === 'o')) {
     $('#massage').html('o wins!')
+    $('#two, #five, #eight').css('background-color', 'white')
     gameWonO()
     gameLogic.gameIsOver = true
   } else if (($('#zero').html() === 'o') &&
 ($('#four').html() === 'o') &&
 ($('#eight').html() === 'o')) {
     $('#massage').html('o wins!')
+    $('#zero, #four, #eight').css('background-color', 'white')
     gameWonO()
     gameLogic.gameIsOver = true
   } else if (($('#two').html() === 'o') &&
 ($('#four').html() === 'o') &&
 ($('#six').html() === 'o')) {
     $('#massage').html('o wins!')
+    $('#two, #four, #six').css('background-color', 'white')
     gameWonO()
     gameLogic.gameIsOver = true
   } else if (($('#zero').html() !== '') &&
@@ -215,6 +231,7 @@ const checkForWin = function (event) {
 }
 
 const doTheGame = function (event) {
+  event.preventDefault()
   $('#massage').html('')
   if (gameLogic.playerX === true) {
     if ($(event.target).html() === '') {
@@ -242,6 +259,7 @@ const doTheGame = function (event) {
 }
 
 const checkIfOver = function (event) {
+  event.preventDefault()
   if (gameLogic.gameIsOver === false) {
     doTheGame(event)
   } else {

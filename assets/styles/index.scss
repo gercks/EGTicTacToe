@@ -11,21 +11,21 @@ body {
 }
 
 .board {
-    font-size: 250%;
-    font-weight: bold;
-    margin: auto;
+  font-size: 250%;
+  font-weight: bold;
+  margin: auto;
 }
 
 .board td {
-    height: 120px;
-    text-align: center;
-    vertical-align: middle;
-    width: 120px;
+  height: 120px;
+  text-align: center;
+  vertical-align: middle;
+  width: 120px;
     // border: 10px solid $black;
 }
 
 .board td:hover {
-    background-color: #Fff;
+  background-color: #Fff;
 }
 
 .modalz {
@@ -36,8 +36,9 @@ body {
   float: left;
   margin: 0 40px;
 }
+
 h1, h2, h3, p, #newgame, #playhistory {
-text-align: center;
+  text-align: center;
 }
 h2 {
 background-color: yellow;

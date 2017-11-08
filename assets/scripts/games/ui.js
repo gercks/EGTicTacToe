@@ -29,7 +29,10 @@ const signOutSuccess = function () {
   $('#message').text('Signed out successfully')
   console.log('signOut success ran. and nothing was returned')
   $('.hideme').hide()
+  $('.keephidingme').hide()
   store.user = null
+  $('td').html('')
+  $('#massage').html('')
 }
 
 const signOutFailure = function (error) {
@@ -51,6 +54,7 @@ const newGameSuccess = function (response) {
   $('#massage').text('Created Game successfully')
   $('#message').text('')
   $('td').html('')
+  $('td').css('background-color', '#4286f4')
   $('.keephidingme').show()
   console.log('asdlkf')
   store.game = response.game

@@ -19,7 +19,7 @@ https://imgur.com/a/qnR8A
 
 Most of this code is different from how I originally imagined and planned it. However, for the most part, I think it is better.
 
-I began by building the basic HTML, CSS, and SASS necessary to display a board. I also used bootstrap to format. I
+I began by building the basic HTML, CSS, and SASS necessary to display a board. I also used bootstrap to format. 
 
 I then set up my game logic, which uses a jQuery click handler to react to each move made. The click event is passed through several functions that, in order:
   - check if the game is in progress over
@@ -49,5 +49,5 @@ When building this game, I kept the following user stories in mind.
 - Be able to click on spaces on the gameboard to make a move
 - Be able to select another space if an already taken space is accidentally selected
 - Be able to choose to play a new game when another ends
-- See when and by whom the game has been won 
+- See when and by whom the game has been won
 - See how many games have been won by each side

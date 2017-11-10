@@ -90,7 +90,7 @@ const playFailure = function (error) {
   console.log('play failure ran. error is :', error)
 }
 
-const overTrueSuccess = function (response) {
+const gameOverSuccess = function (response) {
   store.game = response.game
   store.wins.draws.push(1)
   console.log('overTrue ran!')
@@ -125,7 +125,7 @@ module.exports = {
   playFailure,
   gameHistorySuccess,
   gameHistoryFailure,
-  overTrueSuccess,
+  gameOverSuccess,
   overTrueFailure,
   gameWonOSuccess,
   gameWonXSuccess

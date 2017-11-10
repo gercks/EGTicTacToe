@@ -72,7 +72,7 @@ const gameOver = function (event) {
   gameLogic.gameIsOver = true
   gameLogic.playerX = true
   api.overTrue(event)
-    .then(ui.overTrueSuccess)
+    .then(ui.gameOverSuccess)
     .catch(ui.overTrueFailure)
   api.gameHistory()
     .then(ui.gameHistorySuccess)

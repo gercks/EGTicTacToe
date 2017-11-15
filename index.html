@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>TicTacToe</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="stylesheet" type="text/scss" href="index.scss">
 
       <!-- Do not add `link` tags-->
       <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+      <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
 
       <!-- Do not add `script` tags-->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
@@ -22,7 +23,7 @@
     <div class="navbar-nav">
 <!-- beginning -->
         <!-- beginning of sign up -->
-        <div class="dropdown">
+        <div id="sign-in-dropdown" class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Sign Up!</b></a>
 			<ul class="dropdown-menu">
 					 <div class="row">
@@ -40,7 +41,7 @@
        </ul>
      </div>
         <!-- beginning of sign in -->
-        <div class="dropdown">
+        <div id="sign-up-dropdown" class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Sign in!</b></a>
       <ul class="dropdown-menu">
            <div class="row">
@@ -90,15 +91,13 @@
   </div>
 <br>
 <div class="keephidingme">
-<h2 id="massage"></h2>
-<br>
 <div class=scoreboard>
   <h3 id="scoreboard">Scoreboard</h3>
 <h4 class="stats" id="xwins">x wins: </h4>
 <h4 class="stats" id="draws">draws: </h4>
 <h4 class="stats" id="owins">o wins: </h4>
 </div>
-
+<h2 id="massage"></h2>
 <br>
            <table id="board" class="board">
   <tr>

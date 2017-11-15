@@ -36,12 +36,15 @@ body {
   float: left;
   margin: 0 40px;
 }
-
+h1 {
+  font-size: 50px;
+}
 h1, h2, h3, p, #newgame, #playhistory {
   text-align: center;
+  font-family: 'Indie Flower', cursive;
 }
 h2 {
-background-color: yellow;
+color: #C71585;
 }
 
 h1, .signinreminder {
@@ -50,17 +53,23 @@ h1, .signinreminder {
 }
 #new-game {
 padding: 10px;
-color: $black;
-background-color: pink;
+color: #C71585;;
+background-color: #FFD700;
+font-size: 20px;
+font-family: serif;
 }
 .scoreboard {
   text-align: center;
   margin: auto;
+  margin-left: 400px;
+  margin-right: 400px;
+  color: #C71585;
 }
 .stats {
   margin: 10px;
   padding: 10px;
-  border: 1px solid $black;
+  border: 3px solid #FFD700;
+  color: #C71585;
 }
 
 table {
@@ -68,7 +77,7 @@ table {
 }
 
 #message {
-  font-size: 10px;
+  font-size: 20px;
 }
 
 #zero {

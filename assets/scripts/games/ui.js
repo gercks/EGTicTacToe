@@ -83,11 +83,7 @@ const gameHistoryFailure = function (error) {
 
 const playSuccess = function (response) {
   console.log(response)
-  if ($(event.target).html === 'x') {
-    $('#message').html('o\'s turn')
-  } else {
-    $('#message').html('x\'s turn')
-  }
+  $('#message').text('sweet move!')
   store.game = response.game
 }
 

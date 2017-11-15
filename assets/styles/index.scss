@@ -52,10 +52,15 @@ h1, .signinreminder {
 padding: 10px;
 color: $black;
 background-color: pink;
+font-size: 30px;
+font-weight: bold;
+font-family: serif;
 }
 .scoreboard {
   text-align: center;
   margin: auto;
+  margin-left: 300px;
+  margin-right: 300px;
 }
 .stats {
   margin: 10px;

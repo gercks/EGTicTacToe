@@ -237,6 +237,7 @@ const doTheGame = function (event) {
     if ($(event.target).html() === '') {
       $(event.target).html('x')
       gameLogic.playerX = false
+      $('#massage').html('o\'s turn')
       checkForWin()
       api.play(event)
         .then(ui.playSuccess)
@@ -248,6 +249,7 @@ const doTheGame = function (event) {
     if ($(event.target).html() === '') {
       $(event.target).html('o')
       gameLogic.playerX = true
+    $('#massage').html('x\'s turn')
       checkForWin()
       api.play(event)
         .then(ui.playSuccess)

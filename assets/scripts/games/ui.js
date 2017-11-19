@@ -4,6 +4,7 @@ const store = require('../store')
 
 const signUpSuccess = function (data) {
   $('#message').text('Signed up successfully')
+  $('.signinreminder').show()
   console.log(data)
 }
 
@@ -35,6 +36,8 @@ const signOutSuccess = function () {
   store.user = null
   $('td').html('')
   $('#massage').html('')
+  $('#sign-up-dropdown').show()
+  $('#sign-in-dropdown').show()
 }
 
 const signOutFailure = function (error) {
@@ -53,7 +56,7 @@ const changePasswordFailure = function (error) {
 }
 
 const newGameSuccess = function (response) {
-  $('#massage').text('Created Game successfully')
+  $('#massage').text('Created Game successfully! It is x\'s turn')
   $('#message').text('')
   $('td').html('')
   $('td').css('background-color', '#4286f4')
@@ -83,7 +86,6 @@ const gameHistoryFailure = function (error) {
 
 const playSuccess = function (response) {
   console.log(response)
-  $('#message').text('sweet move!')
   store.game = response.game
 }
 

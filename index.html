@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>TicTacToe</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" type="text/scss" href="index.scss">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+      <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body class="container-fluid">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+</button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+<!-- beginning -->
+        <!-- beginning of sign up -->
+        <div id="sign-in-dropdown" class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Sign Up!</b></a>
+			<ul class="dropdown-menu">
+					 <div class="row">
+							<div class="col-md-12">
+                <form id="sign-up">
+                  <fieldset>
+                  <input name="credentials[email]" type="text" placeholder="enter your email">
+                  <input name="credentials[password]" type="password" placeholder="enter your password">
+                  <input name="credentials[password_confirmation]" type="password" placeholder="confirm password">
+                  <input type="submit" name="submit" value="Sign up!">
+                </fieldset>
+                </form>
+							</div>
+					 </div>
+       </ul>
+     </div>
+        <!-- beginning of sign in -->
+        <div id="sign-up-dropdown" class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Sign in!</b></a>
+      <ul class="dropdown-menu">
+           <div class="row">
+              <div class="col-md-12">
+                <form id="sign-in">
+                  <fieldset>
+                    <input name="credentials[email]" type="text" placeholder="enter your email">
+                    <input name="credentials[password]" type="password" placeholder="enter your password">
+                    <input type="submit" name="submit" value="Sign in!">
+                  </fieldset>
+                </form>
+                </div>
+              </div>
+            </ul>
+    </div>
+        <!-- beginning of change password -->
+        <div class="hideme">
+      <div class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Change Password</b></a>
+      <ul class="dropdown-menu">
+           <div class="row">
+              <div class="col-md-12">
+                  <form id="change-password">
+                  <fieldset>
+                    <input name="passwords[old]" type="password" placeholder="enter old password">
+                    <input name="passwords[new]" type="password" placeholder="enter new password">
+                    <input type="submit" name="submit" value="Change Password">
+                  </fieldset>
+                </form>
+                </div>
+              </div>
+      </ul>
+    </div>
+<div class="dropdown">
+  <a id="sign-out" href="#">Sign Out!</a>
+</div>
+</div>
+</div>
+</div>
+</nav>
+<h2 id="message"></h2>
+  <h1>TIC TAC TOE!</h1>
+  <h3 class="signinreminder">Sign in to play!</h3>
+<div class="hideme">
+  <div id="newgame">
+  <button id="new-game">New Game</button>
+  </div>
+<br>
+<div class="keephidingme">
+<div class=scoreboard>
+  <h3 id="scoreboard">Scoreboard</h3>
+<h4 class="stats" id="xwins">x wins: </h4>
+<h4 class="stats" id="draws">draws: </h4>
+<h4 class="stats" id="owins">o wins: </h4>
+</div>
+<h2 id="massage"></h2>
+<br>
+           <table id="board" class="board">
+  <tr>
+      <td id="zero" class="col-md-4 box" value="0"></td>
+      <td id="one" class="col-md-4 box" value="1"></td>
+      <td id="two" class="col-md-4 box" value="2"></td>
+  </tr>
+  <tr>
+      <td id="three" class="col-md-4 box" value="3"></td>
+      <td id="four" class="col-md-4 box" value="4"></td>
+      <td id="five" class="col-md-4 box" value="5"></td>
+  </tr>
+  <tr>
+      <td id="six" class="col-md-4 box" value="6"></td>
+      <td id="seven" class="col-md-4 box" value="7"></td>
+      <td id="eight" class="col-md-4 box" value="8"></td>
+  </tr>
+</table>
+</div>
+</div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+  </body>
+</html>
